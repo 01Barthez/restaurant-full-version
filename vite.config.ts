@@ -9,6 +9,10 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    allowedHosts: ['restaurant-full-version.onrender.com'],
+  },
+  preview: {
+    allowedHosts: ['restaurant-full-version.onrender.com'],
   },
   plugins: [
     react(),
