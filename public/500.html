@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erreur Serveur - Le Délice Moderne</title>
+    <meta name="description" content="Une erreur serveur s'est produite. Notre équipe technique travaille à résoudre le problème.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>" type="image/svg+xml">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #f97316 0%, #f59e0b 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+        }
+        
+        .container {
+            background: white;
+            padding: 3rem;
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            text-align: center;
+            max-width: 500px;
+            margin: 1rem;
+        }
+        
+        .error-code {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #f97316;
+            margin-bottom: 1rem;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+        
+        p {
+            color: #6b7280;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: #f97316;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #ea580c;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #f97316;
+            border: 2px solid #f97316;
+        }
+        
+        .btn-secondary:hover {
+            background: #f97316;
+            color: white;
+        }
+        
+        .status-info {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: #fef3c7;
+            border-radius: 0.5rem;
+            border-left: 4px solid #f59e0b;
+        }
+        
+        .status-info h3 {
+            color: #92400e;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .status-info p {
+            color: #b45309;
+            margin: 0;
+            font-size: 0.875rem;
+        }
+        
+        .contact-info {
+            margin-top: 1.5rem;
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        
+        @media (min-width: 768px) {
+            .buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="error-code">500</div>
+        <h1>Erreur Serveur Interne</h1>
+        <p>
+            Désolé, une erreur technique s'est produite sur nos serveurs. 
+            Notre équipe technique a été automatiquement notifiée et travaille 
+            à résoudre le problème dans les plus brefs délais.
+        </p>
+        
+        <div class="buttons">
+            <a href="/" class="btn btn-primary">
+                🏠 Retour à l'Accueil
+            </a>
+            <button onclick="window.location.reload()" class="btn btn-secondary">
+                🔄 Réessayer
+            </button>
+        </div>
+        
+        <div class="status-info">
+            <h3>🔧 Que faire en attendant?</h3>
+            <p>
+                • Vérifiez votre connexion internet<br>
+                • Rechargez la page dans quelques minutes<br>
+                • Contactez-nous si le problème persiste
+            </p>
+        </div>
+        
+        <div class="contact-info">
+            <p>
+                <strong>Support technique:</strong> contact@delicemoderne.fr<br>
+                <strong>Téléphone:</strong> +33 1 23 45 67 89<br>
+                <strong>Horaires:</strong> Lun-Dim 11h00-23h00
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Auto-refresh après 30 secondes
+        setTimeout(() => {
+            if (confirm('Voulez-vous réessayer de charger la page?')) {
+                window.location.reload();
+            }
+        }, 30000);
+        
+        // Log pour debugging
+        console.error('Server Error 500 - Le Délice Moderne');
+        console.info('Error timestamp:', new Date().toISOString());
+        console.info('User Agent:', navigator.userAgent);
+        console.info('Page URL:', window.location.href);
+    </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    
+    <!-- Titre et Description -->
+    <title>Le Délice Moderne - Restaurant Gastronomique Yaoundé | Commande en Ligne PWA</title>
+    <meta name="description" content="🍽️ Découvrez Le Délice Moderne, restaurant gastronomique Yaoundéien. Application PWA avec menu raffiné, commande en ligne, livraison rapide, notifications push et mode hors-ligne. Cuisine moderne française avec système de fidélité avancé." />
+    <meta name="keywords" content="restaurant Yaoundé, gastronomie française, PWA, application mobile, commande en ligne, livraison restaurant, cuisine moderne, menu gastronomique, réservation restaurant, fidélité client, notifications push, mode hors ligne, restaurant management, performance optimisée" />
+    <meta name="author" content="Barthez Kenwou - DevOps Engeneer" />
+    
+    <!-- SEO et Robots -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-image-preview:large" />
+    <meta name="language" content="French" />
+    <meta name="revisit-after" content="3 days" />
+    <meta name="distribution" content="global" />
+    <meta name="rating" content="general" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    
+    <!-- Performance et Core Web Vitals -->
+    <meta name="google-site-verification" content="your-verification-code" />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" as="image" href="/placeholder.svg" />
+    <link rel="modulepreload" href="/src/main.tsx" />
+    
+    <!-- Géolocalisation -->
+    <meta name="geo.placename" content="YAounde" />
+    
+    <!-- Open Graph (Facebook) Optimisé -->
+    <meta property="og:site_name" content="Le Délice Moderne" />
+    <meta property="og:title" content="Le Délice Moderne - Restaurant Gastronomique Yaoundé | Application PWA" />
+    <meta property="og:description" content="🍽️ Restaurant gastronomique Yaoundéien avec application PWA. Commandez en ligne, système de fidélité, notifications push, mode hors-ligne et livraison rapide dans tout Yaoundé." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://delicemoderne.fr" />
+    <meta property="og:image" content="https://delicemoderne.fr/images/restaurant-hero-1200x630.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Le Délice Moderne - Restaurant gastronomique Yaoundéien avec application mobile" />
+    <meta property="article:author" content="Le Délice Moderne" />
+    
+    <!-- Twitter Cards Optimisé -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@delicemoderne" />
+    <meta name="twitter:creator" content="@delicemoderne" />
+    <meta name="twitter:title" content="Le Délice Moderne - Restaurant Gastronomique Yaoundé PWA" />
+    <meta name="twitter:description" content="🍽️ Cuisine française moderne, application PWA, commande en ligne, livraison Yaoundé. Découvrez notre menu gastronomique avec notifications et mode hors-ligne." />
+    <meta name="twitter:image" content="https://delicemoderne.fr/images/restaurant-hero-1200x630.jpg" />
+    <meta name="twitter:image:alt" content="Le Délice Moderne - Restaurant gastronomique avec PWA" />
+    
+    <!-- PWA Manifest et Icônes -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="application-name" content="Le Délice Moderne" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Délice Moderne" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="msapplication-TileColor" content="#FF6B35" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+    
+    <!-- Icônes Optimisées -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>" type="image/svg+xml">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#FF6B35">
+    
+    <!-- Performance et Préchargement Optimisé -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="//images.unsplash.com" />
+    <link rel="dns-prefetch" href="//api.delicemoderne.fr" />
+    <link rel="dns-prefetch" href="//analytics.google.com" />
+    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(self), payment=(self)" />
+    
+    <!-- Theme Color et UI -->
+    <meta name="theme-color" content="#FF6B35" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="format-detection" content="telephone=yes" />
+
+    <!-- Dark mode boot script to avoid FOUC -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('darkMode');
+          var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var enableDark = saved === 'true' || (saved === null && prefersDark);
+          var root = document.documentElement;
+          if (enableDark) {
+            root.classList.add('dark');
+          } else {
+            root.classList.remove('dark');
+          }
+        } catch (e) {
+          // noop
+        }
+      })();
+    </script>
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://delicemoderne.fr" />
+      </head>
+
+  <body>
+    <!-- Application React -->
+    <div id="root"></div>
+    
+    <!-- Script App -->
+    <script type="module" src="/src/main.tsx"></script>
+  
+    <!-- Accessibility and No-JS fallback optimisé -->
+    <noscript>
+      <div style="padding: 2rem; text-align: center; background: linear-gradient(135deg, #FF6B35 0%, #D32F2F 100%); color: white; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <h1 style="font-size: 2.5rem; margin-bottom: 1rem; font-weight: 700;">🍽️ Le Délice Moderne</h1>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; line-height: 1.6;">
+          Cette application web progressive nécessite JavaScript pour fonctionner optimalement. 
+          Veuillez l'activer dans votre navigateur pour profiter de toutes les fonctionnalités.
+        </p>
+        <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px; backdrop-filter: blur(10px);">
+          <h2 style="margin-bottom: 1rem;">Nous contacter :</h2>
+          <p style="margin-bottom: 0.5rem;">📞 <a href="tel:+33123456789" style="color: white; text-decoration: none;">+237 655 646 688</a></p>
+          <p style="margin-bottom: 0.5rem;">📧 <a href="mailto:contact@delicemoderne.fr" style="color: white; text-decoration: none;">contact@delicemoderne.fr</a></p>
+          <p>Odza - Yaoundé | Cameroun</p>
+        </div>
+      </div>
+    </noscript>
+  </body>
+</html>

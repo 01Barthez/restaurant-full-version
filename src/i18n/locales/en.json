@@ -1,0 +1,162 @@
+
+{
+  "nav": {
+    "home": "Home",
+    "menu": "Menu",
+    "about": "About",
+    "contact": "Contact",
+    "login": "Login",
+    "logout": "Logout",
+    "admin": "Admin",
+    "dashboard": "Dashboard",
+    "orders": "Orders",
+    "profile": "Profile"
+  },
+  "home": {
+    "welcome": "Welcome to Le Délice Moderne",
+    "subtitle": "Discover our French gourmet cuisine",
+    "viewMenu": "View Menu",
+    "orderNow": "Order Now",
+    "featuredDishes": "Featured Dishes",
+    "specialOffers": "Special Offers"
+  },
+  "menu": {
+    "title": "Our Menu",
+    "categories": {
+      "all": "All",
+      "appetizers": "Appetizers",
+      "mains": "Main Courses",
+      "desserts": "Desserts",
+      "drinks": "Drinks"
+    },
+    "addToCart": "Add to Cart",
+    "notAvailable": "Not Available",
+    "price": "Price",
+    "description": "Description",
+    "ingredients": "Ingredients",
+    "allergens": "Allergens",
+    "nutrition": "Nutritional Information",
+    "itemNotFound": "Item not found",
+    "backToMenu": "Back to menu",
+    "details": "Details",
+    "preparationTime": "Preparation time",
+    "minutes": "minutes"
+  },
+  "cart": {
+    "title": "Cart",
+    "empty": "Your cart is empty",
+    "total": "Total",
+    "checkout": "Checkout",
+    "remove": "Remove",
+    "quantity": "Quantity"
+  },
+  "order": {
+    "title": "Place Order",
+    "loginRequired": "Login Required",
+    "loginMessage": "You must log in to place an order",
+    "locationCheck": "Location Check",
+    "locationRequired": "You must be in the restaurant to order",
+    "paymentMethod": "Payment Method",
+    "choosePayment": "Choose your payment method",
+    "cashPayment": "Cash Payment",
+    "onlinePayment": "Online Payment",
+    "orangeMoney": "Orange Money",
+    "mtnMoney": "MTN Money",
+    "paypal": "PayPal",
+    "bankTransfer": "Bank Transfer",
+    "confirmOrder": "Confirm Order",
+    "orderConfirmed": "Order Confirmed",
+    "simulate": "Simulate Order (Admin)"
+  },
+  "admin": {
+    "dashboard": "Admin Dashboard",
+    "analytics": "Analytics",
+    "orders": "Order Management",
+    "menu": "Menu Management",
+    "users": "Users",
+    "offers": "Offers",
+    "messages": "Messages",
+    "reports": "Reports",
+    "downloadPDF": "Download PDF",
+    "createOrder": "Create Order",
+    "createItem": "Create Item",
+    "createCategory": "Create Category",
+    "createOffer": "Create Offer"
+  },
+  "search": {
+    "placeholder": "Search for a dish, category...",
+    "filters": "Filters",
+    "sortBy": "Sort by",
+    "price": "Price",
+    "rating": "Rating",
+    "popularity": "Popularity",
+    "dietary": "Dietary",
+    "vegetarian": "Vegetarian",
+    "vegan": "Vegan",
+    "glutenFree": "Gluten Free",
+    "spicy": "Spicy"
+  },
+  "accessibility": {
+    "toolbar": "Accessibility toolbar",
+    "settings": "Accessibility settings",
+    "fontSize": "Font size",
+    "speechEnabled": "Speech synthesis",
+    "toggleSpeech": "Toggle speech synthesis",
+    "speakText": "Read text",
+    "stopSpeaking": "Stop reading",
+    "increaseText": "Increase text size",
+    "decreaseText": "Decrease text size",
+    "highContrast": "High contrast"
+  },
+  "pages": {
+    "about": {
+      "title": "About Us",
+      "description": "Discover our story and passion for cuisine",
+      "mission": "Our Mission",
+      "vision": "Our Vision",
+      "values": "Our Values"
+    },
+    "contact": {
+      "title": "Contact Us",
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "hours": "Opening Hours",
+      "form": {
+        "name": "Name",
+        "email": "Email",
+        "message": "Message",
+        "send": "Send"
+      }
+    },
+    "gallery": {
+      "title": "Gallery",
+      "subtitle": "Discover our restaurant and dishes"
+    },
+    "rewards": {
+      "title": "Loyalty Program",
+      "subtitle": "Earn points with every order"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "close": "Close",
+    "open": "Open",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "clear": "Clear",
+    "confirm": "Confirm",
+    "yes": "Yes",
+    "no": "No"
+  }
+}

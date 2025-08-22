@@ -1,0 +1,41 @@
+
+name: 'Build Application'
+description: 'Build React application with optimizations'
+inputs:
+  environment:
+    description: 'Environment to build for'
+    required: true
+    default: 'production'
+outputs:
+  build-path:
+    description: 'Path to built application'
+    value: 'dist'
+runs:
+  using: 'composite'
+  steps:
+    - name: Build application
+      shell: bash
+      run: |
+        npm run build
+        echo "Build completed successfully"
+    
+    - name: Optimize build
+      shell: bash
+      run: |
+        # Compress assets
+        find dist -type f -name "*.js" -exec gzip -k {} \;
+        find dist -type f -name "*.css" -exec gzip -k {} \;
+        find dist -type f -name "*.html" -exec gzip -k {} \;
+        
+        # Generate build report
+        echo "Build size:" > build-report.txt
+        du -sh dist >> build-report.txt
+        echo "Files count:" >> build-report.txt
+        find dist -type f | wc -l >> build-report.txt
+    
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-${{ inputs.environment }}
+        path: dist/
+        retention-days: 30

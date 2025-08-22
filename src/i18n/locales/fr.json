@@ -1,0 +1,162 @@
+
+{
+  "nav": {
+    "home": "Accueil",
+    "menu": "Menu",
+    "about": "À propos",
+    "contact": "Contact",
+    "login": "Connexion",
+    "logout": "Déconnexion",
+    "admin": "Administration",
+    "dashboard": "Tableau de bord",
+    "orders": "Commandes",
+    "profile": "Profil"
+  },
+  "home": {
+    "welcome": "Bienvenue au Délice Moderne",
+    "subtitle": "Découvrez notre cuisine gastronomique française",
+    "viewMenu": "Voir le Menu",
+    "orderNow": "Commander Maintenant",
+    "featuredDishes": "Plats Vedettes",
+    "specialOffers": "Offres Spéciales"
+  },
+  "menu": {
+    "title": "Notre Menu",
+    "categories": {
+      "all": "Tous",
+      "appetizers": "Entrées",
+      "mains": "Plats Principaux",
+      "desserts": "Desserts",
+      "drinks": "Boissons"
+    },
+    "addToCart": "Ajouter au Panier",
+    "notAvailable": "Non Disponible",
+    "price": "Prix",
+    "description": "Description",
+    "ingredients": "Ingrédients",
+    "allergens": "Allergènes",
+    "nutrition": "Informations Nutritionnelles",
+    "itemNotFound": "Article non trouvé",
+    "backToMenu": "Retour au menu",
+    "details": "Détails",
+    "preparationTime": "Temps de préparation",
+    "minutes": "minutes"
+  },
+  "cart": {
+    "title": "Panier",
+    "empty": "Votre panier est vide",
+    "total": "Total",
+    "checkout": "Commander",
+    "remove": "Supprimer",
+    "quantity": "Quantité"
+  },
+  "order": {
+    "title": "Passer Commande",
+    "loginRequired": "Connexion requise",
+    "loginMessage": "Vous devez vous connecter pour passer commande",
+    "locationCheck": "Vérification de localisation",
+    "locationRequired": "Vous devez être dans le restaurant pour commander",
+    "paymentMethod": "Méthode de paiement",
+    "choosePayment": "Choisissez votre méthode de paiement",
+    "cashPayment": "Paiement en espèces",
+    "onlinePayment": "Paiement en ligne",
+    "orangeMoney": "Orange Money",
+    "mtnMoney": "MTN Money",
+    "paypal": "PayPal",
+    "bankTransfer": "Virement Bancaire",
+    "confirmOrder": "Confirmer la commande",
+    "orderConfirmed": "Commande confirmée",
+    "simulate": "Simuler commande (Admin)"
+  },
+  "admin": {
+    "dashboard": "Tableau de Bord Admin",
+    "analytics": "Analytics",
+    "orders": "Gestion des Commandes",
+    "menu": "Gestion du Menu",
+    "users": "Utilisateurs",
+    "offers": "Offres",
+    "messages": "Messages",
+    "reports": "Rapports",
+    "downloadPDF": "Télécharger PDF",
+    "createOrder": "Créer Commande",
+    "createItem": "Créer Article",
+    "createCategory": "Créer Catégorie",
+    "createOffer": "Créer Offre"
+  },
+  "search": {
+    "placeholder": "Rechercher un plat, catégorie...",
+    "filters": "Filtres",
+    "sortBy": "Trier par",
+    "price": "Prix",
+    "rating": "Note",
+    "popularity": "Popularité",
+    "dietary": "Régime alimentaire",
+    "vegetarian": "Végétarien",
+    "vegan": "Végétalien",
+    "glutenFree": "Sans Gluten",
+    "spicy": "Épicé"
+  },
+  "accessibility": {
+    "toolbar": "Barre d'outils d'accessibilité",
+    "settings": "Paramètres d'accessibilité",
+    "fontSize": "Taille de police",
+    "speechEnabled": "Synthèse vocale",
+    "toggleSpeech": "Activer/désactiver la synthèse vocale",
+    "speakText": "Lire le texte",
+    "stopSpeaking": "Arrêter la lecture",
+    "increaseText": "Augmenter la taille du texte",
+    "decreaseText": "Diminuer la taille du texte",
+    "highContrast": "Contraste élevé"
+  },
+  "pages": {
+    "about": {
+      "title": "À propos de nous",
+      "description": "Découvrez notre histoire et notre passion pour la cuisine",
+      "mission": "Notre mission",
+      "vision": "Notre vision",
+      "values": "Nos valeurs"
+    },
+    "contact": {
+      "title": "Contactez-nous",
+      "address": "Adresse",
+      "phone": "Téléphone",
+      "email": "Email",
+      "hours": "Heures d'ouverture",
+      "form": {
+        "name": "Nom",
+        "email": "Email",
+        "message": "Message",
+        "send": "Envoyer"
+      }
+    },
+    "gallery": {
+      "title": "Galerie",
+      "subtitle": "Découvrez notre restaurant et nos plats"
+    },
+    "rewards": {
+      "title": "Programme de fidélité",
+      "subtitle": "Gagnez des points à chaque commande"
+    }
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "cancel": "Annuler",
+    "save": "Sauvegarder",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "close": "Fermer",
+    "open": "Ouvrir",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "sort": "Trier",
+    "clear": "Effacer",
+    "confirm": "Confirmer",
+    "yes": "Oui",
+    "no": "Non"
+  }
+}

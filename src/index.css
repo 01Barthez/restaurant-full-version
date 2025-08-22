@@ -1,0 +1,489 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap");
+@import 'leaflet/dist/leaflet.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Styles de sélection de texte personnalisés */
+::selection {
+  background: hsl(var(--restaurant-primary));
+  color: white;
+  text-shadow: none;
+}
+
+/* Pour Firefox */
+::-moz-selection {
+  background: hsl(var(--restaurant-primary));
+  color: white;
+  text-shadow: none;
+}
+
+/* Pour les éléments avec fond sombre */
+.dark ::selection {
+  background: hsl(var(--restaurant-accent));
+  color: white;
+}
+
+.dark ::-moz-selection {
+  background: hsl(var(--restaurant-accent));
+  color: white;
+}
+
+/* Pour les liens */
+a::selection,
+button::selection,
+.button::selection {
+  background: hsl(var(--restaurant-accent));
+  color: white;
+}
+
+a::-moz-selection,
+button::-moz-selection,
+.button::-moz-selection {
+  background: hsl(var(--restaurant-accent));
+  color: white;
+}
+
+/* Pour les titres */
+h1::selection,
+h2::selection,
+h3::selection,
+h4::selection,
+h5::selection,
+h6::selection,
+.title::selection {
+  background: hsl(var(--restaurant-secondary));
+  color: white;
+}
+
+h1::-moz-selection,
+h2::-moz-selection,
+h3::-moz-selection,
+h4::-moz-selection,
+h5::-moz-selection,
+h6::-moz-selection,
+.title::-moz-selection {
+  background: hsl(var(--restaurant-secondary));
+  color: white;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-6px) scale(1.1);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-bounce-once {
+  animation: bounce 0.6s ease-out;
+}
+
+.wave {
+  position: relative;
+  overflow: hidden;
+}
+
+.wave::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 50% -50%,
+    rgba(249, 115, 22, 0.1),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.wave.active::after {
+  opacity: 1;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.wave {
+  position: relative;
+  overflow: hidden;
+}
+
+.wave::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 50% -50%,
+    rgba(249, 115, 22, 0.1),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+h2.title {
+  @apply text-2xl md:text-3xl font-bold;
+}
+
+p.para {
+  @apply text-base md:text-lg lg:text-xl;
+}
+
+.wave.active::after {
+  opacity: 1;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 16 85% 55%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 16 85% 55%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Restaurant specific variables */
+    --restaurant-primary: 16 85% 55%;
+    --restaurant-secondary: 45 90% 55%;
+    --restaurant-accent: 25 95% 50%;
+    --restaurant-neutral: 30 8% 20%;
+    --restaurant-cream: 45 25% 95%;
+    --restaurant-gold: 45 90% 60%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-playfair;
+  }
+}
+
+@layer utilities {
+  /* Typography utilities */
+  .font-playfair {
+    font-family: "Playfair Display", serif;
+  }
+
+  .font-inter {
+    font-family: "Inter", sans-serif;
+  }
+
+  .font-poppins {
+    font-family: "Poppins", sans-serif;
+  }
+
+  /* Animation utilities */
+  .hover-scale {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
+
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/10 border border-white/20;
+  }
+
+  /* PWA specific utilities */
+  .pwa-install-prompt {
+    @apply fixed bottom-4 left-4 right-4 z-50 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg border;
+  }
+
+  .offline-indicator {
+    @apply fixed top-0 left-0 right-0 z-50 bg-yellow-500 text-white text-center py-2 text-sm;
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Enhanced restaurant utilities with gradients */
+  .bg-restaurant-gradient {
+    @apply bg-gradient-to-br from-orange-500 via-orange-600 to-red-600;
+  }
+
+  .bg-restaurant-gradient-subtle {
+    @apply bg-gradient-to-r from-orange-50 via-yellow-50 to-orange-50 dark:from-orange-900/20 dark:via-yellow-900/20 dark:to-orange-900/20;
+  }
+
+  .bg-restaurant-gold-gradient {
+    @apply bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600;
+  }
+
+  .text-restaurant-gradient {
+    @apply bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-transparent;
+  }
+
+  .text-restaurant-orange {
+    @apply text-orange-500;
+  }
+
+  .text-restaurant-dark {
+    @apply text-gray-900 dark:text-white;
+  }
+
+  .bg-restaurant-cream {
+    @apply bg-orange-50 dark:bg-orange-900/20;
+  }
+
+  .border-restaurant-orange {
+    @apply border-orange-500;
+  }
+
+  .hover:bg-restaurant-orange-hover {
+    @apply hover:bg-orange-600;
+  }
+
+  /* Performance optimization utilities */
+  .lazy-load {
+    @apply opacity-0 transition-opacity duration-300;
+  }
+
+  .lazy-load.loaded {
+    @apply opacity-100;
+  }
+
+  /* Skeleton loading animations */
+  .skeleton {
+    @apply animate-pulse bg-gray-200 dark:bg-gray-700 rounded;
+  }
+
+  .skeleton-text {
+    @apply skeleton h-4 w-full mb-2;
+  }
+
+  .skeleton-avatar {
+    @apply skeleton w-12 h-12 rounded-full;
+  }
+
+  .skeleton-image {
+    @apply skeleton w-full h-48;
+  }
+}
+
+/* PWA specific styles */
+@media (display-mode: standalone) {
+  body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Offline styles */
+.offline .online-only {
+  display: none;
+}
+
+/* Critical loading styles */
+.critical-loading {
+  @apply min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-500 to-red-600;
+}
+
+.critical-loading .spinner {
+  @apply w-12 h-12 border-4 border-white/30 border-t-white rounded-full animate-spin;
+}
+
+.leaflet-tooltip {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 0;
+  font-family: inherit;
+  pointer-events: none;
+  z-index: 1000;
+}
+.leaflet-tooltip-top:before {
+  border-top-color: white;
+}
+/* Add smooth transitions for map interactions */
+.leaflet-fade-anim .leaflet-tile,
+.leaflet-fade-anim .leaflet-popup {
+  will-change: opacity;
+  transition: opacity 0.2s linear;
+}
+/* Improve zoom controls */
+.leaflet-control-zoom a {
+  transition: background-color 0.2s;
+}
+/* Custom marker animation */
+@keyframes pulse-marker {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+}
+
+.leaflet-marker-icon,
+.leaflet-marker-shadow {
+  background: none !important;
+  border: none !important;
+}

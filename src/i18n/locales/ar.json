@@ -1,0 +1,162 @@
+
+{
+  "nav": {
+    "home": "الرئيسية",
+    "menu": "القائمة",
+    "about": "حولنا",
+    "contact": "اتصل بنا",
+    "login": "تسجيل الدخول",
+    "logout": "تسجيل الخروج",
+    "admin": "الإدارة",
+    "dashboard": "لوحة التحكم",
+    "orders": "الطلبات",
+    "profile": "الملف الشخصي"
+  },
+  "home": {
+    "welcome": "مرحباً بك في لو ديليس مودرن",
+    "subtitle": "اكتشف مطبخنا الفرنسي الراقي",
+    "viewMenu": "عرض القائمة",
+    "orderNow": "اطلب الآن",
+    "featuredDishes": "الأطباق المميزة",
+    "specialOffers": "العروض الخاصة"
+  },
+  "menu": {
+    "title": "قائمتنا",
+    "categories": {
+      "all": "الكل",
+      "appetizers": "المقبلات",
+      "mains": "الأطباق الرئيسية",
+      "desserts": "الحلويات",
+      "drinks": "المشروبات"
+    },
+    "addToCart": "إضافة إلى السلة",
+    "notAvailable": "غير متوفر",
+    "price": "السعر",
+    "description": "الوصف",
+    "ingredients": "المكونات",
+    "allergens": "مسببات الحساسية",
+    "nutrition": "المعلومات الغذائية",
+    "itemNotFound": "العنصر غير موجود",
+    "backToMenu": "العودة إلى القائمة",
+    "details": "التفاصيل",
+    "preparationTime": "وقت التحضير",
+    "minutes": "دقائق"
+  },
+  "cart": {
+    "title": "السلة",
+    "empty": "سلتك فارغة",
+    "total": "المجموع",
+    "checkout": "إتمام الطلب",
+    "remove": "إزالة",
+    "quantity": "الكمية"
+  },
+  "order": {
+    "title": "إجراء الطلب",
+    "loginRequired": "تسجيل الدخول مطلوب",
+    "loginMessage": "يجب تسجيل الدخول لإجراء طلب",
+    "locationCheck": "فحص الموقع",
+    "locationRequired": "يجب أن تكون في المطعم للطلب",
+    "paymentMethod": "طريقة الدفع",
+    "choosePayment": "اختر طريقة الدفع",
+    "cashPayment": "الدفع نقداً",
+    "onlinePayment": "الدفع الإلكتروني",
+    "orangeMoney": "أورانج موني",
+    "mtnMoney": "إم تي إن موني",
+    "paypal": "بايبال",
+    "bankTransfer": "تحويل بنكي",
+    "confirmOrder": "تأكيد الطلب",
+    "orderConfirmed": "تم تأكيد الطلب",
+    "simulate": "محاكاة الطلب (المدير)"
+  },
+  "admin": {
+    "dashboard": "لوحة تحكم الإدارة",
+    "analytics": "التحليلات",
+    "orders": "إدارة الطلبات",
+    "menu": "إدارة القائمة",
+    "users": "المستخدمون",
+    "offers": "العروض",
+    "messages": "الرسائل",
+    "reports": "التقارير",
+    "downloadPDF": "تحميل PDF",
+    "createOrder": "إنشاء طلب",
+    "createItem": "إنشاء عنصر",
+    "createCategory": "إنشاء فئة",
+    "createOffer": "إنشاء عرض"
+  },
+  "search": {
+    "placeholder": "ابحث عن طبق، فئة...",
+    "filters": "المرشحات",
+    "sortBy": "ترتيب حسب",
+    "price": "السعر",
+    "rating": "التقييم",
+    "popularity": "الشعبية",
+    "dietary": "النظام الغذائي",
+    "vegetarian": "نباتي",
+    "vegan": "نباتي صرف",
+    "glutenFree": "خالي من الغلوتين",
+    "spicy": "حار"
+  },
+  "accessibility": {
+    "toolbar": "شريط أدوات إمكانية الوصول",
+    "settings": "إعدادات إمكانية الوصول",
+    "fontSize": "حجم الخط",
+    "speechEnabled": "التركيب الصوتي",
+    "toggleSpeech": "تبديل التركيب الصوتي",
+    "speakText": "قراءة النص",
+    "stopSpeaking": "إيقاف القراءة",
+    "increaseText": "زيادة حجم النص",
+    "decreaseText": "تقليل حجم النص",
+    "highContrast": "تباين عالي"
+  },
+  "pages": {
+    "about": {
+      "title": "معلومات عنا",
+      "description": "اكتشف قصتنا وشغفنا بالطبخ",
+      "mission": "مهمتنا",
+      "vision": "رؤيتنا",
+      "values": "قيمنا"
+    },
+    "contact": {
+      "title": "اتصل بنا",
+      "address": "العنوان",
+      "phone": "الهاتف",
+      "email": "البريد الإلكتروني",
+      "hours": "ساعات العمل",
+      "form": {
+        "name": "الاسم",
+        "email": "البريد الإلكتروني",
+        "message": "الرسالة",
+        "send": "إرسال"
+      }
+    },
+    "gallery": {
+      "title": "المعرض",
+      "subtitle": "اكتشف مطعمنا وأطباقنا"
+    },
+    "rewards": {
+      "title": "برنامج الولاء",
+      "subtitle": "اكسب نقاط مع كل طلب"
+    }
+  },
+  "common": {
+    "loading": "جاري التحميل...",
+    "error": "خطأ",
+    "success": "نجح",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "back": "رجوع",
+    "next": "التالي",
+    "previous": "السابق",
+    "close": "إغلاق",
+    "open": "فتح",
+    "search": "بحث",
+    "filter": "تصفية",
+    "sort": "ترتيب",
+    "clear": "مسح",
+    "confirm": "تأكيد",
+    "yes": "نعم",
+    "no": "لا"
+  }
+}

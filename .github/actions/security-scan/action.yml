@@ -1,0 +1,25 @@
+
+name: 'Security Scan'
+description: 'Run security scans on the application'
+runs:
+  using: 'composite'
+  steps:
+    - name: Run npm audit
+      shell: bash
+      run: |
+        npm audit --audit-level=high
+        npm audit fix --dry-run
+    
+    - name: Check for secrets
+      shell: bash
+      run: |
+        # Basic secret scanning
+        echo "Scanning for potential secrets..."
+        grep -r --include="*.js" --include="*.ts" --include="*.jsx" --include="*.tsx" \
+          -E "(api_key|password|secret|token)" src/ || echo "No secrets found"
+    
+    - name: Dependency check
+      shell: bash
+      run: |
+        # Check for outdated dependencies
+        npm outdated || true
