@@ -6,10 +6,10 @@ import { Star } from 'lucide-react';
 import SEOHelmet from '@/components/SEO/SEOHelmet';
 import { useNavigate } from 'react-router-dom';
 import Navigation from '@/Layout/Navigation';
-import Footer from '@/Layout/Footer';
+import Footer from '@/Layout/footer/Footer';
 import { pointsRules } from '@/data/pointsRules.data';
 import { rewardTiers } from '@/data/rewardTiers.data';
-import { redeemOptions } from '@/store/constants';
+import { redeemOptions } from '@/data/redeemOptions.data';
 
 const AboutRewards: React.FC = () => {
   const navigate = useNavigate();
@@ -23,10 +23,7 @@ const AboutRewards: React.FC = () => {
       />
       
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      <Navigation 
-        currentPage="about" 
-        onPageChange={(page) => navigate(page === 'home' ? '/' : `/${page}`)} 
-      />
+      <Navigation />
       
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-orange-500 to-yellow-500 text-white py-16">

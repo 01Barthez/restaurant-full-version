@@ -2,13 +2,7 @@
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Clock, Star, Users } from 'lucide-react';
-import { MenuItem } from '@/store/types';
-
-interface MenuInfoProps {
-  item: MenuItem;
-  averageRating: number;
-  reviewCount: number;
-}
+import { MenuInfoProps } from '@/types/global';
 
 const MenuInfo: React.FC<MenuInfoProps> = ({ item, averageRating, reviewCount }) => {
   return (
@@ -46,11 +40,11 @@ const MenuInfo: React.FC<MenuInfoProps> = ({ item, averageRating, reviewCount })
           1 personne
         </Badge>
         {item.dietary?.includes('spicy') && (
-          <Badge variant="destructive">🌶️ Épicé</Badge>
+          <Badge variant="destructive">Épicé</Badge>
         )}
         {item.dietary?.includes('vegetarian') && (
           <Badge variant="outline" className="bg-green-50 text-green-700">
-            🌱 Végétarien
+            Végétarien
           </Badge>
         )}
       </div>

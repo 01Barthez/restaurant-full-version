@@ -3,12 +3,7 @@ import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ShoppingBag, Star, Clock, Euro } from 'lucide-react';
-import { Order, User } from '@/store/types';
-
-interface UserStatsProps {
-  user: User;
-  orders: Order[];
-}
+import { UserStatsProps } from '@/types/global';
 
 const UserStats: React.FC<UserStatsProps> = ({ user, orders }) => {
   const totalSpent = orders

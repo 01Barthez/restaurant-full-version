@@ -10,56 +10,13 @@ import {
   Offer, 
   ActivityLog, 
   Analytics 
-} from './types';
+} from '@/types/global';
 import { createAuthSlice, AuthSlice } from './slices/authSlice';
 import { createCartSlice, CartSlice } from './slices/cartSlice';
 import { createReviewSlice, ReviewSlice } from './slices/reviewSlice';
 import { createMenuSlice, MenuSlice } from './slices/menuSlice';
 import { createOrderSlice, OrderSlice } from './slices/orderSlice';
 
-interface AppState extends AuthSlice, CartSlice, ReviewSlice, MenuSlice, OrderSlice {
-  // Theme and Language
-  isDarkMode: boolean;
-  currentLanguage: 'fr' | 'en' | 'ar';
-  toggleDarkMode: () => void;
-  setLanguage: (lang: 'fr' | 'en' | 'ar') => void;
-
-  // Enhanced user management
-  users: User[];
-  updateUserLoyaltyPoints: (userId: string, pointsToAdd: number) => void;
-  createDemoUser: () => void;
-  sendMessageToUser: (userId: string, message: string) => void;
-  
-  // Offers management
-  offers: Offer[];
-  addOffer: (offer: Omit<Offer, 'id'>) => void;
-  updateOffer: (id: string, offer: Partial<Offer>) => void;
-  deleteOffer: (id: string) => void;
-  
-  // Enhanced activity tracking
-  activityLogs: ActivityLog[];
-  addActivityLog: (log: Omit<ActivityLog, 'id' | 'timestamp'>) => void;
-  
-  // Contact messages
-  contactMessages: Array<{
-    id: string;
-    name: string;
-    email: string;
-    message: string;
-    timestamp: Date;
-    read: boolean;
-  }>;
-  addContactMessage: (message: { name: string; email: string; message: string }) => void;
-  markMessageAsRead: (messageId: string) => void;
-  
-  // Enhanced analytics
-  analytics: Analytics;
-  calculateDashboardStats: () => Analytics;
-  
-  // Utility functions
-  scrollToTop: () => void;
-  initializeTestData: () => void;
-}
 
 const useStore = create<AppState>()(
   persist(

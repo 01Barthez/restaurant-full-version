@@ -1,7 +1,6 @@
 
 import React, { useState, useMemo, useCallback } from 'react';
-import { MenuItem } from '@/types/restaurant';
-import { menuItems } from '@/data/mockData';
+import { MenuItem, MenuPageProps } from '@/types/global';
 import MenuCard from './MenuCard';
 import MenuFilters from './MenuFilters';
 import CategorizedMenuView from './CategorizedMenuView';
@@ -10,11 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Grid, List } from 'lucide-react';
 import HeroSection from './common/HeroSection';
 import { HERO_CONTENT } from '@/constants/heroSections';
-
-interface MenuPageProps {
-  onItemSelect: (item: MenuItem) => void;
-  selectedCategory?: string;
-}
+import { menuItems } from '@/data/menuItems.data';
 
 const MenuPage: React.FC<MenuPageProps> = ({ onItemSelect, selectedCategory }) => {
   const [searchTerm, setSearchTerm] = useState('');

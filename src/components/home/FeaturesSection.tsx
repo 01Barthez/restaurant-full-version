@@ -33,7 +33,7 @@ const FeaturesSection = () => {
     }, [])
 
     return (
-        <section className="relative py-20 sm:py-24 lg:py-28 overflow-hidden">
+        <section className="relative py-6 sm:py-12 lg:py-16 bg-gradient-to-bl from-orange-400/75 via-orange-900/80 to-black/40 overflow-hidden">
             {/* Radiant, patterned background */}
             <div className="absolute inset-0 -z-10">
                 {/* Base gradient (theme aware, radiant but not overpowering) */}
@@ -62,18 +62,19 @@ const FeaturesSection = () => {
                                 }}
                                 data-index={i}
                                 className={
-                                    `group col-span-1 bg-white/50 dark:bg-white/10 backdrop-blur-md border border-black/10 dark:border-white/15 text-foreground p-5 sm:p-6 lg:p-8 rounded-2xl ` +
+                                    `group col-span-1 bg-white/50 dark:bg-white/10 backdrop-blur-md border border-black/10 dark:border-white/15 text-foreground p-2 lg:p-3 rounded-xl ` +
                                     `transition-all duration-500 will-change-transform ` +
                                     `hover:-translate-y-1 hover:shadow-2xl hover:shadow-orange-500/10 hover:ring-2 hover:ring-[hsl(var(--restaurant-primary))] ` +
-                                    `${i % 2 === 1 ? 'mt-6' : ''} ` +
+                                    `${i % 2 === 0 ? 'mt-3' : ''} ` +
                                     `${visible[i] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`
                                 }
                                 style={{ transitionDelay: `${i * 80}ms` }}
                             >
-                                <CardContent className="text-center space-y-3 sm:space-y-4">
+                                <CardContent className="text-center space-y-1 sm:space-y-2">
                                     <div className={`w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br ${f.tile} rounded-2xl flex items-center justify-center mx-auto group-hover:rotate-3 transition-transform duration-300`}>
                                         {f.icon}
                                     </div>
+
                                     <h3 className="font-bold text-base sm:text-lg">{f.title}</h3>
                                     <p className="text-xs sm:text-sm text-gray-700 dark:text-gray-300">{f.desc}</p>
                                 </CardContent>

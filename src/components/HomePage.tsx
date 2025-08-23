@@ -4,13 +4,8 @@ import CategorySection from './CategorySection';
 import OffersCarousel from './OffersCarousel';
 import { HeroSection, FeaturedItemsSection, RestaurantInfoSection } from '@/components/home';
 import FeaturesSection from './home/FeaturesSection';
-import SmallGallery from './home/SmallGallery';
-
-interface HomePageProps {
-  onMenuClick: () => void;
-  onItemSelect: (itemId: string) => void;
-  onCategorySelect: (category: string) => void;
-}
+import SmallGallery from './ui/image-cursor-trail';
+import { HomePageProps } from '@/types/global';
 
 const HomePage: React.FC<HomePageProps> = ({ onMenuClick, onItemSelect, onCategorySelect }) => {
 

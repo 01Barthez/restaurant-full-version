@@ -2,11 +2,7 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
-interface OfferGalleryProps {
-  images: string[];
-  title: string;
-}
+import { OfferGalleryProps } from '@/types/global';
 
 const OfferGallery: React.FC<OfferGalleryProps> = ({ images, title }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);

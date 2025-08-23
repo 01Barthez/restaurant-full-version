@@ -4,14 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Eye, RotateCcw, ShoppingCart } from 'lucide-react';
-import { Order } from '@/store/types';
 import { useNavigate } from 'react-router-dom';
-
-interface RecentOrdersProps {
-  orders: Order[];
-  userId: string;
-  onReorder: (order: Order) => void;
-}
+import { RecentOrdersProps } from '@/types/global';
 
 const RecentOrders: React.FC<RecentOrdersProps> = ({ orders, userId, onReorder }) => {
   const navigate = useNavigate();

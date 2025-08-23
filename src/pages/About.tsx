@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Link, useNavigate } from 'react-router-dom';
 import Navigation from '@/Layout/Navigation';
-import Footer from '@/Layout/Footer';
+import Footer from '@/Layout/footer/Footer';
 import SEOHelmet from '@/components/SEO/SEOHelmet';
 import OptimizedLazyImage from '@/components/ui/OptimizedLazyImage';
 import HeroSection from '@/components/common/HeroSection';

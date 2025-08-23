@@ -1,14 +1,8 @@
 
 import { create } from 'zustand';
-import { CartItem } from './types';
+import { CartItem, CartState } from '@/types/global';
 
-interface CartState {
-  cart: CartItem[];
-  addToCart: (item: CartItem) => void;
-  removeFromCart: (itemId: string) => void;
-  updateCartQuantity: (itemId: string, quantity: number) => void;
-  clearCart: () => void;
-}
+
 
 export const useCartStore = create<CartState>((set) => ({
   cart: [],

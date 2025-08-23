@@ -5,13 +5,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/u
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { MapPin, AlertTriangle, Navigation } from 'lucide-react';
-
-interface LocationModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  distance?: number;
-  onRetry: () => void;
-}
+import { LocationModalProps } from '@/types/global';
 
 const LocationModal: React.FC<LocationModalProps> = ({ 
   isOpen, 

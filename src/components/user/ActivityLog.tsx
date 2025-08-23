@@ -3,11 +3,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Clock, ShoppingBag, User, LogIn } from 'lucide-react';
-import { ActivityLog as ActivityLogType } from '@/store/types';
-
-interface ActivityLogProps {
-  logs: ActivityLogType[];
-}
+import { ActivityLogProps } from '@/types/global';
 
 const ActivityLog: React.FC<ActivityLogProps> = ({ logs }) => {
   const getActivityIcon = (type: string) => {

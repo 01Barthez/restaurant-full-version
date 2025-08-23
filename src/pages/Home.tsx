@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { MenuItem } from '@/types/restaurant';
-import { menuItems } from '@/data/mockData';
+import { MenuItem } from '@/types/global';
 import HomePage from '@/components/HomePage';
 import MenuPage from '@/components/MenuPage';
 import MenuDetail from '@/components/MenuDetail';
@@ -9,8 +8,9 @@ import AdminLogin from '@/components/AdminLogin';
 import AdminDashboard from '@/components/AdminDashboard';
 import SEOHelmet from '@/components/SEO/SEOHelmet';
 import { useToast } from '@/hooks/use-toast';
-import Footer from '@/Layout/Footer';
+import Footer from '@/Layout/footer/Footer';
 import Navigation from '@/Layout/Navigation';
+import { menuItems } from '@/data/menuItems.data';
 
 const Home = () => {
   const location = useLocation();
@@ -35,7 +35,7 @@ const Home = () => {
   useEffect(() => {
     const path = location.pathname;
     const menuItemMatch = path.match(/\/menu\/(.+)/);
-    
+
     if (menuItemMatch) {
       const itemId = menuItemMatch[1];
       const item = menuItems.find(i => i.id === itemId);
@@ -56,10 +56,10 @@ const Home = () => {
   };
 
   const handleItemSelect = (itemOrId: MenuItem | string) => {
-    const item = typeof itemOrId === 'string' 
-      ? menuItems.find(i => i.id === itemOrId) 
+    const item = typeof itemOrId === 'string'
+      ? menuItems.find(i => i.id === itemOrId)
       : itemOrId;
-    
+
     if (item) {
       navigate(`/menu/${item.id}`);
     }
@@ -137,24 +137,20 @@ const Home = () => {
     <>
       <SEOHelmet
         title={currentPage === 'menu' ? 'Menu - Le Délice Moderne' : 'Accueil - Le Délice Moderne'}
-        description={currentPage === 'menu' 
+        description={currentPage === 'menu'
           ? 'Découvrez notre carte complète de plats camerounais authentiques. Commandez en ligne et profitez de la livraison rapide.'
           : 'Bienvenue au Délice Moderne, votre restaurant camerounais de référence. Découvrez nos spécialités traditionnelles et commandez en ligne.'}
-        keywords={currentPage === 'menu' 
+        keywords={currentPage === 'menu'
           ? 'menu camerounais, plats traditionnels, commande en ligne, livraison restaurant'
           : 'restaurant camerounais, cuisine africaine, spécialités camerounaises, livraison yaoundé'}
       />
-      
+
     <div className="min-h-screen bg-white dark:bg-gray-900">
-      <Navigation 
-        currentPage={currentPage}
-        onPageChange={handlePageChange}
-        onAdminClick={handleAdminClick}
-      />
-      
+      <Navigation />
+
       {currentPage === 'home' && (
         <>
-          <HomePage 
+          <HomePage
             onMenuClick={handleMenuClick}
             onItemSelect={handleItemSelect}
             onCategorySelect={handleCategorySelect}
@@ -162,17 +158,17 @@ const Home = () => {
           <Footer />
         </>
       )}
-      
+
       {currentPage === 'menu' && !selectedItem && (
         <>
-          <MenuPage 
+          <MenuPage
             onItemSelect={handleItemSelect}
             selectedCategory={selectedCategory !== 'all' ? selectedCategory : undefined}
           />
           <Footer />
         </>
       )}
-      
+
       {selectedItem && (
         <>
           <MenuDetail />

@@ -9,14 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Gift, Star, Trophy, User, Lock, Phone, Mail } from 'lucide-react';
 import useStore from '@/store/useStore';
 import { useToast } from '@/hooks/use-toast';
-
-interface EnhancedAuthModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  onSuccess?: () => void;
-  title?: string;
-  description?: string;
-}
+import { EnhancedAuthModalProps } from '@/types/global';
 
 const EnhancedAuthModal: React.FC<EnhancedAuthModalProps> = ({ 
   isOpen, 

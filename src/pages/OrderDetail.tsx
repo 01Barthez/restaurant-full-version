@@ -7,7 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { ArrowLeft, RefreshCw, Phone, Mail, MessageSquare } from 'lucide-react';
 import useStore from '@/store/useStore';
 import Navigation from '@/Layout/Navigation';
-import Footer from '@/Layout/Footer';
+import Footer from '@/Layout/footer/Footer';
 
 const OrderDetail: React.FC = () => {
   const { userId, orderId } = useParams();
@@ -59,7 +59,7 @@ const OrderDetail: React.FC = () => {
   if (!currentUser || !order) {
     return (
       <div className="min-h-screen bg-gray-50">
-        <Navigation currentPage="profile" onPageChange={() => {}} onAdminClick={() => {}} />
+        <Navigation />
         <div className="flex items-center justify-center min-h-[60vh]">
           <Card className="max-w-md w-full mx-4">
             <CardContent className="p-6 text-center">
@@ -78,7 +78,7 @@ const OrderDetail: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navigation currentPage="profile" onPageChange={() => {}} onAdminClick={() => {}} />
+      <Navigation />
       
       <div className="max-w-4xl mx-auto px-4 py-8">
         <div className="flex items-center mb-6">

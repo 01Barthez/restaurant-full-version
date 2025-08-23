@@ -2,15 +2,9 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { categories } from '@/data/categories.data';
-import useStore from '@/store/useStore';
-
-interface CategorySectionProps {
-  onCategorySelect: (category: string) => void;
-}
+import { CategorySectionProps } from '@/types/global';
 
 const CategorySection: React.FC<CategorySectionProps> = ({ onCategorySelect }) => {
-  const { isDarkMode } = useStore();
-
   return (
     <section className="py-16 px-4 bg-background mx-10 lg:mx-0">
       <div className="max-w-6xl mx-auto">

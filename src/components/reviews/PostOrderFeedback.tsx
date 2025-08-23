@@ -6,13 +6,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Star, MessageCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { ReviewService } from '@/services/reviewService';
-
-interface PostOrderFeedbackProps {
-  orderId: string;
-  orderItems: any[];
-  onSubmitFeedback: (feedback: any) => void;
-  onClose: () => void;
-}
+import { PostOrderFeedbackProps } from '@/types/global';
 
 const PostOrderFeedback: React.FC<PostOrderFeedbackProps> = ({
   orderId,

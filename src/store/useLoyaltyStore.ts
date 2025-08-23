@@ -1,13 +1,7 @@
 
 import { create } from 'zustand';
-import { User } from './types';
+import { LoyaltyState, User } from '@/types/global';
 
-interface LoyaltyState {
-  calculatePointsEarned: (orderTotal: number, user: User) => number;
-  getUserTier: (points: number) => string;
-  getTierMultiplier: (tier: string) => number;
-  getAnciennyBonus: (user: User) => number;
-}
 
 export const useLoyaltyStore = create<LoyaltyState>(() => ({
   calculatePointsEarned: (orderTotal: number, user: User) => {

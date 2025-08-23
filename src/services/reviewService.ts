@@ -1,9 +1,4 @@
-
-interface ReviewAIModerationResult {
-  isAcceptable: boolean;
-  reason?: string;
-  suggestedEdit?: string;
-}
+import { ReviewAIModerationResult } from "@/types/global";
 
 export class ReviewService {
   // AI Moderation using simple keyword filtering (replace with actual AI API)

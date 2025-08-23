@@ -1,7 +1,6 @@
 import { MdNotInterested } from "react-icons/md";
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { AlertTriangle } from 'lucide-react';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BsArrow90DegLeft } from 'react-icons/bs';

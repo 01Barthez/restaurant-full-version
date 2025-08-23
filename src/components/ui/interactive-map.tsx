@@ -106,8 +106,15 @@ const CustomControls = ({ onLocate, onToggleLayer, layers }: {
   return null;
 };
 
+// Search component props
+interface SearchControlProps {
+  onSearch?: (result: { latLng: [number, number]; name: string }) => void;
+}
+
 // Search component
-const SearchControl = ({ onSearch }) => {
+const SearchControl = React.forwardRef<{
+  flyTo: (latlng: [number, number], zoom: number) => void;
+}, SearchControlProps>(({ onSearch }, ref) => {
   const [query, setQuery] = useState('');
   const map = useMap();
 
@@ -123,9 +130,9 @@ const SearchControl = ({ onSearch }) => {
 
       if (results.length > 0) {
         const { lat, lon, display_name } = results[0];
-        const latLng = [parseFloat(lat), parseFloat(lon)];
+        const latLng: [number, number] = [parseFloat(lat), parseFloat(lon)];
         map.flyTo(latLng, 13);
-        onSearch && onSearch({ latLng, name: display_name });
+        onSearch?.({ latLng, name: display_name });
       }
     } catch (error) {
       console.error('Search error:', error);
@@ -133,7 +140,7 @@ const SearchControl = ({ onSearch }) => {
   };
 
   useEffect(() => {
-    const control = L.control({ position: 'topleft' });
+    const control = new L.Control({ position: 'topleft' });
 
     control.onAdd = () => {
       const div = L.DomUtil.create('div', 'search-control');
@@ -156,14 +163,19 @@ const SearchControl = ({ onSearch }) => {
 
       L.DomEvent.disableClickPropagation(div);
 
-      const input = div.querySelector('#search-input');
-      const button = div.querySelector('#search-btn');
+      const input = div.querySelector<HTMLInputElement>('#search-input');
+      const button = div.querySelector<HTMLButtonElement>('#search-btn');
 
-      input.addEventListener('input', (e) => setQuery(e.target.value));
-      input.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') handleSearch();
-      });
-      button.addEventListener('click', handleSearch);
+      if (input) {
+        input.addEventListener('input', (e) => setQuery((e.target as HTMLInputElement).value));
+        input.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') handleSearch();
+        });
+      }
+      
+      if (button) {
+        button.addEventListener('click', handleSearch);
+      }
 
       return div;
     };
@@ -185,7 +197,9 @@ const SearchControl = ({ onSearch }) => {
   }));
 
   return null;
-};
+});
+
+SearchControl.displayName = 'SearchControl';
 
 // Define the ref type for the AdvancedMap component
 export type MapRefType = {

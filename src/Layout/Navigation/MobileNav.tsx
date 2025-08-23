@@ -4,8 +4,8 @@ import { Menu, X, LogIn, User, Utensils } from 'lucide-react';
 import ThemeToggle from '@/components/utils/ThemeToggle';
 import LanguageToggle from '@/components/utils/LanguageToggle';
 import NavItem from './NavItem';
-import { MobileNavProps, navigationItems } from './types';
 import useStore from '@/store/useStore';
+import { MobileNavProps, navigationItems } from './types';
 
 const MobileNav: React.FC<MobileNavProps> = ({ 
   currentPage, 

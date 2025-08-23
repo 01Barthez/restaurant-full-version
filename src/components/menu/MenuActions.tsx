@@ -2,15 +2,8 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ShoppingCart, Heart, Share2 } from 'lucide-react';
-import { MenuItem } from '@/store/types';
+import { MenuActionsProps } from '@/types/global';
 
-interface MenuActionsProps {
-  item: MenuItem;
-  onAddToCart: () => void;
-  isFavorite: boolean;
-  onToggleFavorite: () => void;
-  onShare: () => void;
-}
 
 const MenuActions: React.FC<MenuActionsProps> = ({
   item,

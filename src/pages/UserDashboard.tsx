@@ -12,7 +12,7 @@ import ActivityLog from '@/components/user/ActivityLog';
 import useStore from '@/store/useStore';
 import { useToast } from '@/hooks/use-toast';
 import Navigation from '@/Layout/Navigation';
-import Footer from '@/Layout/Footer';
+import Footer from '@/Layout/footer/Footer';
 
 const UserDashboard: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -67,10 +67,7 @@ const UserDashboard: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      <Navigation 
-        currentPage="dashboard" 
-        onPageChange={(page) => navigate(page === 'home' ? '/' : `/${page}`)} 
-      />
+      <Navigation />
       
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="flex justify-between items-center mb-8">

@@ -6,8 +6,8 @@ import { LogIn } from 'lucide-react';
 import ThemeToggle from '@/components/utils/ThemeToggle';
 import LanguageToggle from '@/components/utils/LanguageToggle';
 import UserProfile from '@/components/UserProfile';
-import { DesktopNavProps, navigationItems } from './types';
 import useStore from '@/store/useStore';
+import { DesktopNavProps, navigationItems } from './types';
 
 const DesktopNav: React.FC<DesktopNavProps> = ({ 
   currentPage, 

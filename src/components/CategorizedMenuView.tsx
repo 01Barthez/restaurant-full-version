@@ -1,12 +1,11 @@
 
 import React from 'react';
-import { MenuItem } from '@/types/restaurant';
-import { menuItems } from '@/data/mockData';
+import { MenuItem } from '@/types/global';
 import MenuCard from './MenuCard';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from './ui/card';
-import { ChefHat } from 'lucide-react';
+import { menuItems } from '@/data/menuItems.data';
 
 interface CategorizedMenuViewProps {
   onItemSelect: (item: MenuItem) => void;

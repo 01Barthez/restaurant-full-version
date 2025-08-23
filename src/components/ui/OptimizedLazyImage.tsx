@@ -22,6 +22,9 @@ interface OptimizedLazyImageProps {
   objectPosition?: string;
   blurDataURL?: string;
   darkModeSrc?: string;
+  ref?: React.Ref<HTMLDivElement>;
+  loading?: 'lazy' | 'eager' | 'auto';
+  decoding?: 'async' | 'sync' | 'auto';
 }
 
 const OptimizedLazyImage: React.FC<OptimizedLazyImageProps> = ({
@@ -42,6 +45,8 @@ const OptimizedLazyImage: React.FC<OptimizedLazyImageProps> = ({
   objectPosition = 'center',
   blurDataURL,
   darkModeSrc,
+  ref,
+  loading = 'lazy',
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [errorCount, setErrorCount] = useState(0);

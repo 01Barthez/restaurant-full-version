@@ -6,11 +6,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Home, 
-  Search, 
-  Menu, 
-  Phone, 
+import {
+  Home,
+  Search,
+  Menu,
+  Phone,
   ArrowLeft,
   MapPin,
   Clock,
@@ -18,8 +18,8 @@ import {
 } from "lucide-react";
 import SEOHelmet from "@/components/SEO/SEOHelmet";
 import PageTransition from "@/components/ui/PageTransition";
-import Footer from "@/Layout/Footer";
 import Navigation from "../Layout/Navigation";
+import Footer from "@/Layout/footer/Footer";
 
 const NotFound = () => {
   const location = useLocation();
@@ -72,13 +72,13 @@ const NotFound = () => {
         description="La page que vous recherchez n'existe pas. Découvrez nos liens rapides pour naviguer facilement sur Le Délice Moderne."
         keywords="404, page non trouvée, navigation, menu, restaurant"
       />
-      
+
       <PageTransition className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
-        <Navigation 
-          currentPage="404" 
-          onPageChange={(page) => navigate(page === 'home' ? '/' : `/${page}`)} 
+        <Navigation
+          currentPage="404"
+          onPageChange={(page) => navigate(page === 'home' ? '/' : `/${page}`)}
         />
-        
+
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto">
             {/* Hero Section */}
@@ -90,10 +90,10 @@ const NotFound = () => {
                 Oops! Cette page n'existe pas
               </h1>
               <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
-                La page que vous recherchez a peut-être été déplacée, supprimée ou n'a jamais existé. 
+                La page que vous recherchez a peut-être été déplacée, supprimée ou n'a jamais existé.
                 Mais ne vous inquiétez pas, nous pouvons vous aider à trouver ce que vous cherchez!
               </p>
-              
+
               {/* Recherche intelligente */}
               <Card className="max-w-md mx-auto mb-8">
                 <CardHeader>

@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Utensils } from 'lucide-react';
 
-const LoaderPage = () => {
+const LoaderPage: React.FC = () => {
   return (
     <div className="fixed inset-0 bg-background/90 backdrop-blur-sm z-50 flex items-center justify-center">
       <div className="text-center">
@@ -46,7 +46,7 @@ const LoaderPage = () => {
         </motion.div>
 
         {/* Progress Bar */}
-        <motion.div 
+        <motion.div
           className="mt-4 h-1 w-40 bg-muted rounded-full overflow-hidden mx-auto"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

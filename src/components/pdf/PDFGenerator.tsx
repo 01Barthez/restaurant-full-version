@@ -3,12 +3,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { FileDown } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-
-interface PDFGeneratorProps {
-  data: any;
-  filename: string;
-  title: string;
-}
+import { PDFGeneratorProps } from '@/types/global';
 
 const PDFGenerator: React.FC<PDFGeneratorProps> = ({ data, filename, title }) => {
   const { toast } = useToast();

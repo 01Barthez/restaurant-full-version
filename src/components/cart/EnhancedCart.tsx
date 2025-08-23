@@ -82,7 +82,7 @@ const EnhancedCart: React.FC = () => {
             </Button>
           </div>
         </CardHeader>
-        
+
         <CardContent className="space-y-4">
           {cart.map((item) => (
             <div key={item.id} className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
@@ -91,7 +91,7 @@ const EnhancedCart: React.FC = () => {
                 alt={item.name}
                 className="w-12 h-12 object-cover rounded"
               />
-              
+
               <div className="flex-1 min-w-0">
                 <h4 className="font-medium text-sm truncate">{item.name}</h4>
                 <p className="text-orange-500 font-semibold">{item.price.toLocaleString()} FCFA</p>
@@ -106,7 +106,7 @@ const EnhancedCart: React.FC = () => {
                   </Badge>
                 )}
               </div>
-              
+
               <div className="flex items-center space-x-2">
                 <Button
                   variant="outline"
@@ -116,11 +116,11 @@ const EnhancedCart: React.FC = () => {
                 >
                   <Minus className="w-3 h-3" />
                 </Button>
-                
+
                 <span className="font-medium min-w-[20px] text-center">
                   {item.quantity}
                 </span>
-                
+
                 <Button
                   variant="outline"
                   size="sm"
@@ -129,7 +129,7 @@ const EnhancedCart: React.FC = () => {
                 >
                   <Plus className="w-3 h-3" />
                 </Button>
-                
+
                 <Button
                   variant="ghost"
                   size="sm"
@@ -141,7 +141,7 @@ const EnhancedCart: React.FC = () => {
               </div>
             </div>
           ))}
-          
+
           <div className="border-t pt-4 space-y-3">
             <div className="flex justify-between items-center">
               <span className="font-semibold">{t('cart.total')}:</span>
@@ -149,7 +149,7 @@ const EnhancedCart: React.FC = () => {
                 {totalAmount.toLocaleString()} FCFA
               </span>
             </div>
-            
+
             <Button
               onClick={() => handleCheckout(false)}
               className="w-full bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600"

@@ -1,17 +1,7 @@
 
+import { Category, MenuItem, MenuSlice } from '@/types/global';
 import { StateCreator } from 'zustand';
-import { MenuItem, Category } from '@/store/types';
 
-export interface MenuSlice {
-  menuItems: MenuItem[];
-  categories: Category[];
-  addMenuItem: (item: Omit<MenuItem, 'id'>) => void;
-  updateMenuItem: (id: string, item: Partial<MenuItem>) => void;
-  deleteMenuItem: (id: string) => void;
-  addCategory: (category: Omit<Category, 'id'>) => void;
-  updateCategory: (id: string, category: Partial<Category>) => void;
-  deleteCategory: (id: string) => void;
-}
 
 export const createMenuSlice: StateCreator<MenuSlice, [], [], MenuSlice> = (set) => ({
   menuItems: [],

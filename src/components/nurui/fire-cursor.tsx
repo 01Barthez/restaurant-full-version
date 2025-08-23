@@ -1,19 +1,11 @@
 "use client";
+import { themeColors } from "@/constants/global";
 import React, { useEffect, useRef } from "react";
 
 const FireCursor = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particleCount = useRef(0);
   const maxParticles = 100; // Limite le nombre de particules pour les performances
-
-  // Couleurs du thème orange
-  const themeColors = [
-    { r: 249, g: 115, b: 22 }, // orange-500
-    { r: 234, g: 88, b: 12 },  // orange-600
-    { r: 194, g: 65, b: 12 },  // orange-700
-    { r: 249, g: 146, b: 90 }, // orange-400
-    { r: 251, g: 191, b: 36 }  // amber-400
-  ];
 
   useEffect(() => {
     const particles: Array<{

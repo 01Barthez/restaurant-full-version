@@ -12,7 +12,7 @@ const Navigation: React.FC = () => {
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [clickedTab, setClickedTab] = useState('');
   const [isMobile, setIsMobile] = useState(false);
-  const { currentUser, scrollToTop } = useStore();
+  const { scrollToTop } = useStore();
   
   const currentPage = location.pathname;
   

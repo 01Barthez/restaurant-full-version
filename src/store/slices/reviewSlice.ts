@@ -1,23 +1,6 @@
 
+import { Review, ReviewSlice } from '@/types/global';
 import { StateCreator } from 'zustand';
-
-interface Review {
-  id: string;
-  userId: string;
-  userName: string;
-  menuItemId: string;
-  rating: number;
-  comment: string;
-  date: Date;
-  moderated: boolean;
-}
-
-export interface ReviewSlice {
-  reviews: Review[];
-  addReview: (review: Omit<Review, 'id' | 'date' | 'moderated'>) => void;
-  getMenuItemReviews: (menuItemId: string) => Review[];
-  moderateReview: (reviewId: string, approved: boolean) => void;
-}
 
 export const createReviewSlice: StateCreator<ReviewSlice, [], [], ReviewSlice> = (set, get) => ({
   reviews: [],

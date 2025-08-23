@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import Navigation from '@/Layout/Navigation';
-import Footer from '@/Layout/Footer';
+import Footer from '@/Layout/footer/Footer';
 import SEOHelmet from '@/components/SEO/SEOHelmet';
 import OptimizedLazyImage from '@/components/ui/OptimizedLazyImage';
 import { Link } from 'react-router-dom';
@@ -22,7 +22,7 @@ const RestaurantDetail: React.FC = () => {
   if (!restaurant) {
     return (
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-        <Navigation currentPage="contact" onPageChange={() => { }} />
+        <Navigation />
         <div className="flex items-center justify-center min-h-[60vh]">
           <Card className="max-w-md w-full mx-4">
             <CardContent className="p-6 text-center">
@@ -44,7 +44,7 @@ const RestaurantDetail: React.FC = () => {
       <SEOHelmet
         title={`${restaurant.name} - Le Délice Moderne`}
         description={restaurant.fullDescription}
-        keywords={`${restaurant.name}, restaurant camerounais ${restaurant.population}, ${restaurant.specialties.join(', ')}, réservation restaurant yaoundé`}
+        keywords={`${restaurant.name}, restaurant camerounais, ${restaurant.specialties?.join(', ') || ''}, réservation restaurant yaoundé`}
       />
 
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
@@ -82,7 +82,7 @@ const RestaurantDetail: React.FC = () => {
                   {restaurant.rating}
                 </Badge>
                 <Badge variant="outline" className="bg-white/90">
-                  {restaurant.reviews} avis
+                  {restaurant.rating >= 4.5 ? 'Excellent' : 'Très bon'} avis
                 </Badge>
               </div>
             </div>

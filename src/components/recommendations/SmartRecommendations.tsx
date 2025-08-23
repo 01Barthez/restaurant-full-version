@@ -4,13 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Star, TrendingUp, Clock, Heart } from 'lucide-react';
 import OptimizedImage from '@/components/ui/OptimizedImage';
-import { MenuItem } from '@/store/types';
-
-interface SmartRecommendationsProps {
-  userHistory: string[]; // Array of menu item IDs
-  menuItems: MenuItem[];
-  onAddToCart: (item: MenuItem) => void;
-}
+import { SmartRecommendationsProps } from '@/types/global';
 
 const SmartRecommendations: React.FC<SmartRecommendationsProps> = ({
   userHistory,

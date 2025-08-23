@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -7,12 +7,15 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { ArrowLeft, ShoppingCart, Heart } from 'lucide-react';
 import Navigation from '@/Layout/Navigation';
-import Footer from '@/Layout/Footer';
+import Footer from '@/Layout/footer/Footer';
 import OfferGallery from '@/components/offer/OfferGallery';
 import OfferInfo from '@/components/offer/OfferInfo';
 import useStore from '@/store/useStore';
 import { useToast } from '@/hooks/use-toast';
 import { offers as staticOffers } from '@/data/offers.data';
+import { HERO_CONTENT } from '@/constants/heroSections';
+import HeroSection from '@/components/common/HeroSection';
+import NotFoundSpecialOfferDetail from './NotFoundSpecialOfferDetail';
 
 const SpecialOfferDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -28,36 +31,19 @@ const SpecialOfferDetail: React.FC = () => {
   const fallback = staticOffers.find(o => o.id === id);
   const offer = storeOffer || (fallback
     ? {
-        id: fallback.id,
-        title: fallback.title,
-        description: fallback.description,
-        items: [],
-        originalPrice: fallback.originalPrice,
-        discountPrice: fallback.discountPrice,
-        discount: fallback.discount,
-        image: '/placeholder.svg',
-        available: true
-      }
+      id: fallback.id,
+      title: fallback.title,
+      description: fallback.description,
+      items: [],
+      originalPrice: fallback.originalPrice,
+      discountPrice: fallback.discountPrice,
+      discount: fallback.discount,
+      image: '/placeholder.svg',
+      available: true
+    }
     : undefined);
-  
-  if (!offer) {
-    return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-        <Navigation />
-        <div className="max-w-7xl mx-auto px-4 py-8">
-          <div className="text-center">
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-              Offer not found
-            </h1>
-            <Button onClick={() => navigate('/menu')}>
-              Return to Menu
-            </Button>
-          </div>
-        </div>
-        <Footer />
-      </div>
-    );
-  }
+
+  if (!offer) return <NotFoundSpecialOfferDetail />
 
   // Get offer items
   const offerItems = offer.items.map(offerItem => {
@@ -88,7 +74,7 @@ const SpecialOfferDetail: React.FC = () => {
     };
 
     addToCart(cartItem);
-    
+
     toast({
       title: "Added to cart!",
       description: `${offer.title} has been added to your cart.`,
@@ -98,7 +84,15 @@ const SpecialOfferDetail: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <Navigation />
-      
+
+      {/* Hero Section */}
+      <HeroSection
+        image={`SPECIAL_OFFER`}
+        span={HERO_CONTENT.SPECIAL_OFFER.span}
+        title={HERO_CONTENT.SPECIAL_OFFER.title}
+        description={HERO_CONTENT.SPECIAL_OFFER.description}
+      />
+
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="mb-6">
           <Button
@@ -113,9 +107,9 @@ const SpecialOfferDetail: React.FC = () => {
 
         <div className="grid lg:grid-cols-2 gap-8">
           <div>
-            <OfferGallery 
-              images={[offer.image]} 
-              title={offer.title} 
+            <OfferGallery
+              images={[offer.image]}
+              title={offer.title}
             />
           </div>
 
@@ -124,7 +118,7 @@ const SpecialOfferDetail: React.FC = () => {
 
             <div className="mt-8 p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
               <h3 className="text-lg font-semibold mb-4">Customize Your Order</h3>
-              
+
               <div className="space-y-4">
                 <div>
                   <Label htmlFor="quantity">Quantity</Label>
@@ -178,7 +172,7 @@ const SpecialOfferDetail: React.FC = () => {
                     <Button variant="outline" size="sm">
                       <Heart className="w-4 h-4" />
                     </Button>
-                    <Button 
+                    <Button
                       onClick={handleAddToCart}
                       disabled={!offer.available}
                       className="bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600"

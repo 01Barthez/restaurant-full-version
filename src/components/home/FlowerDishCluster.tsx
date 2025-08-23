@@ -1,33 +1,11 @@
 import React from 'react';
 import OptimizedLazyImage from '@/components/ui/OptimizedLazyImage';
-import { menuItems } from '@/data/mockData';
-
-interface FlowerDishClusterProps {
-  images?: string[];
-  className?: string;
-}
-
-// Utility: get default images from featured menu items (falls back to any if needed)
-function getDefaultImages(): string[] {
-  const featured = menuItems
-    .filter(m => m.featured && !!m.image)
-    .map(m => m.image!) as string[];
-  const pool = (featured.length >= 6
-    ? featured
-    : (menuItems
-        .map(m => m.image)
-        .filter((s): s is string => typeof s === 'string' && s.length > 0))) as string[];
-  // Pick up to 6 unique images
-  const unique = Array.from(new Set<string>(pool));
-  return unique.slice(0, 6);
-}
-
-// Positions for petals around a center (degrees & radius based positioning)
-// We'll use 6 petals evenly spaced at 60deg steps
-const PETAL_POSITIONS = [0, 60, 120, 180, 240, 300];
+import getDefaultImages from '../functions/getDefaultImages';
+import { FlowerDishClusterProps } from '@/types/global';
+import { PETAL_POSITIONS } from '@/constants/global';
 
 const FlowerDishCluster: React.FC<FlowerDishClusterProps> = ({ images, className }) => {
-  const imgs = (images && images.length ? images : getDefaultImages()).slice(0, 6);
+  const imgs = (images && images.length ? images : getDefaultImages(7)).slice(0, 7);
 
   return (
     <div className={['relative', 'w-[280px] h-[280px]', 'sm:w-[340px] sm:h-[340px]', 'md:w-[400px] md:h-[400px]', 'lg:w-[480px] lg:h-[480px]', className].join(' ')}>

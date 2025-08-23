@@ -5,23 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Star, User } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-
-interface Review {
-  id: string;
-  userId: string;
-  userName: string;
-  rating: number;
-  comment: string;
-  date: Date;
-  menuItemId?: string;
-  moderated: boolean;
-}
-
-interface ReviewSystemProps {
-  menuItemId?: string;
-  reviews: Review[];
-  onAddReview: (review: Omit<Review, 'id' | 'date' | 'moderated'>) => void;
-}
+import { ReviewSystemProps } from '@/types/global';
 
 const ReviewSystem: React.FC<ReviewSystemProps> = ({ menuItemId, reviews, onAddReview }) => {
   const [rating, setRating] = useState(0);

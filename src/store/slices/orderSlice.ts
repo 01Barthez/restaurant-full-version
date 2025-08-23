@@ -1,14 +1,7 @@
 
+import { Order } from '@/types/global';
 import { StateCreator } from 'zustand';
-import { Order } from '@/store/types';
 
-export interface OrderSlice {
-  orders: Order[];
-  addOrder: (order: Omit<Order, 'id' | 'createdAt'>) => string;
-  updateOrderStatus: (orderId: string, status: Order['status']) => void;
-  cancelOrder: (orderId: string) => void;
-  reorderItems: (order: Order) => void;
-}
 
 export const createOrderSlice: StateCreator<
   OrderSlice & { addToCart: (item: any) => void; clearCart: () => void; addActivityLog: (log: any) => void },

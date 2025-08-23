@@ -1,43 +1,6 @@
 
-import { openDB, DBSchema, IDBPDatabase } from 'idb';
-
-interface CacheDB extends DBSchema {
-  menuItems: {
-    key: string;
-    value: {
-      id: string;
-      data: any;
-      timestamp: number;
-      expiresAt: number;
-    };
-  };
-  orders: {
-    key: string;
-    value: {
-      id: string;
-      data: any;
-      timestamp: number;
-      synced: boolean;
-    };
-  };
-  images: {
-    key: string;
-    value: {
-      url: string;
-      blob: Blob;
-      timestamp: number;
-    };
-  };
-  analytics: {
-    key: string;
-    value: {
-      id: string;
-      data: any;
-      timestamp: number;
-      expiresAt: number;
-    };
-  };
-}
+import { CacheDB } from '@/types/global';
+import { openDB, IDBPDatabase } from 'idb';
 
 class CacheService {
   private db: IDBPDatabase<CacheDB> | null = null;

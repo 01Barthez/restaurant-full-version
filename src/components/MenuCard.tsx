@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Clock, Star } from 'lucide-react';
-import { MenuItem } from '@/types/restaurant';
+import { MenuItem } from '@/types/global';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';

@@ -1,13 +1,6 @@
 
+import { ActivityLog, AuthSlice, User } from '@/types/global';
 import { StateCreator } from 'zustand';
-import { User, ActivityLog } from '@/types';
-
-export interface AuthSlice {
-  currentUser: User | null;
-  login: (credentials: { name: string; password: string; phone?: string; email?: string }) => boolean;
-  register: (userData: { name: string; phone: string; email?: string; password: string }) => boolean;
-  logout: () => void;
-}
 
 export const createAuthSlice: StateCreator<
   AuthSlice & { addActivityLog: (log: Omit<ActivityLog, 'id' | 'timestamp'>) => void },

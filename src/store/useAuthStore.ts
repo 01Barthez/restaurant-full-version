@@ -1,13 +1,6 @@
 
+import { AuthState, User } from '@/types/global';
 import { create } from 'zustand';
-import { User } from './types';
-
-interface AuthState {
-  currentUser: User | null;
-  login: (credentials: { name: string; password: string; phone?: string; email?: string }) => boolean;
-  register: (userData: { name: string; phone: string; email?: string; password: string }) => boolean;
-  logout: () => void;
-}
 
 export const useAuthStore = create<AuthState>((set, get) => ({
   currentUser: null,

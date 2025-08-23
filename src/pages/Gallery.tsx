@@ -6,8 +6,8 @@ import { Calendar, MapPin, Users, Award } from 'lucide-react';
 import SEOHelmet from '@/components/SEO/SEOHelmet';
 import OptimizedLazyImage from '@/components/ui/OptimizedLazyImage';
 import { useNavigate } from 'react-router-dom';
-import Navigation from '../Layout/Navigation';
-import Footer from '@/Layout/Footer';
+import Navigation from '@/Layout/Navigation';
+import Footer from '@/Layout/footer/Footer';
 import { galleryItems } from '@/data/galleryItems.data';
 
 const Gallery: React.FC = () => {
@@ -48,10 +48,7 @@ const Gallery: React.FC = () => {
       />
       
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      <Navigation 
-        currentPage="gallery" 
-        onPageChange={(page) => navigate(page === 'home' ? '/' : `/${page}`)} 
-      />
+      <Navigation />
       
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-orange-500 to-yellow-500 text-white py-16">

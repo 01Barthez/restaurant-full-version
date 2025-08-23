@@ -1,7 +1,4 @@
-interface SubscribeResponse {
-  success: boolean;
-  message: string;
-}
+import { SubscribeResponse } from "@/types/global";
 
 export const subscribeToNewsletter = async (email: string): Promise<SubscribeResponse> => {
   try {

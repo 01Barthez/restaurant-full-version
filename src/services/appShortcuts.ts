@@ -1,14 +1,4 @@
-
-interface AppShortcut {
-  name: string;
-  short_name: string;
-  description: string;
-  url: string;
-  icons: Array<{
-    src: string;
-    sizes: string;
-  }>;
-}
+import { AppShortcut } from "@/types/global";
 
 export class AppShortcutsService {
   private shortcuts: AppShortcut[] = [

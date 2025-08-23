@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Navigation from '@/Layout/Navigation';
-import Footer from '@/Layout/Footer';
+import Footer from '@/Layout/footer/Footer';
 import { useLocation } from 'react-router-dom';
 import { Star, Users, Award, Phone, Mail, MapPin } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -52,10 +52,7 @@ const AboutStartup = () => {
       />
       
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      <Navigation 
-        currentPage={getCurrentPage()}
-        onPageChange={handlePageChange}
-      />
+      <Navigation />
       
       <div className="pt-16">
         {/* Hero Section */}

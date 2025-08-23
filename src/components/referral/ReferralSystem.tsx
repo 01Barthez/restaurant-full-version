@@ -5,13 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Share2, Copy, Users, Gift } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { ReferralSystemProps } from '@/types/global';
 
-interface ReferralSystemProps {
-  userId: string;
-  referralCode: string;
-  referralsCount: number;
-  earnedPoints: number;
-}
 
 const ReferralSystem: React.FC<ReferralSystemProps> = ({
   userId,

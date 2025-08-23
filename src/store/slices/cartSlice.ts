@@ -1,14 +1,7 @@
 
+import { ActivityLog, CartSlice } from '@/types/global';
 import { StateCreator } from 'zustand';
-import { CartItem, ActivityLog } from '@/types';
 
-export interface CartSlice {
-  cart: CartItem[];
-  addToCart: (item: CartItem) => void;
-  removeFromCart: (itemId: string) => void;
-  updateCartQuantity: (itemId: string, quantity: number) => void;
-  clearCart: () => void;
-}
 
 export const createCartSlice: StateCreator<
   CartSlice & { 

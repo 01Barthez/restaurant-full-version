@@ -3,13 +3,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Share2 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-
-interface ShareButtonsProps {
-  title: string;
-  description: string;
-  image?: string;
-  price?: number;
-}
+import { ShareButtonsProps } from '@/types/global';
 
 const ShareButtons: React.FC<ShareButtonsProps> = ({ title, description, image, price }) => {
   const currentUrl = window.location.href;

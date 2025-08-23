@@ -15,7 +15,7 @@ import {
   Star, Clock, Euro, Eye, CheckCircle, XCircle, AlertCircle
 } from 'lucide-react';
 import useStore from '@/store/useStore';
-import { contact_data } from '@/store/constants';
+import { contact_data } from '@/constants/global';
 
 interface AdminDashboardProps {
   onLogout: () => void;

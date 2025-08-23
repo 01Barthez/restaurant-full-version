@@ -7,8 +7,6 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft, ShoppingCart, Heart } from 'lucide-react';
 import useStore from '@/store/useStore';
 import { useToast } from '@/hooks/use-toast';
-import MenuInfo from '@/components/menu/MenuInfo';
-import MenuActions from '@/components/menu/MenuActions';
 import ReviewSystem from '@/components/reviews/ReviewSystem';
 import LazyImage from '@/components/ui/LazyImage';
 
@@ -17,7 +15,7 @@ const MenuDetail: React.FC = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const { toast } = useToast();
-  const { menuItems, addToCart, reviews, addReview, getMenuItemReviews } = useStore();
+  const { menuItems, addToCart, addReview, getMenuItemReviews } = useStore();
   const [isFavorite, setIsFavorite] = useState(false);
 
   // Si pas d'éléments de menu dans le store, on crée des données de test
@@ -63,7 +61,7 @@ const MenuDetail: React.FC = () => {
   ] : menuItems;
 
   const item = testMenuItems.find(item => item.id === id);
-  
+
   if (!item) {
     return (
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
@@ -80,8 +78,8 @@ const MenuDetail: React.FC = () => {
   }
 
   const itemReviews = getMenuItemReviews ? getMenuItemReviews(item.id) : [];
-  const averageRating = itemReviews.length > 0 
-    ? itemReviews.reduce((sum, review) => sum + review.rating, 0) / itemReviews.length 
+  const averageRating = itemReviews.length > 0
+    ? itemReviews.reduce((sum, review) => sum + review.rating, 0) / itemReviews.length
     : 0;
 
   const handleAddToCart = () => {
@@ -155,11 +153,11 @@ const MenuDetail: React.FC = () => {
               <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
                 {item.name}
               </h1>
-              
+
               <p className="text-gray-600 dark:text-gray-300 mb-4">
                 {item.description}
               </p>
-              
+
               <div className="flex items-center justify-between mb-4">
                 <span className="text-2xl font-bold text-orange-500">
                   {item.price.toLocaleString()} FCFA
@@ -193,12 +191,12 @@ const MenuDetail: React.FC = () => {
                   {t('menu.preparationTime')}: {item.preparationTime} {t('menu.minutes')}
                 </p>
               </div>
-              
+
               <div className="flex space-x-2">
                 <Button variant="outline" size="sm" onClick={() => setIsFavorite(!isFavorite)}>
                   <Heart className={`w-4 h-4 ${isFavorite ? 'fill-red-500 text-red-500' : ''}`} />
                 </Button>
-                <Button 
+                <Button
                   onClick={handleAddToCart}
                   disabled={!item.available}
                   className="flex-1 bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600"

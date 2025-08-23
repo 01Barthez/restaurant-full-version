@@ -4,10 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { offers } from '@/data/offers.data';
-
-interface OffersCarouselProps {
-  onOfferSelect?: (offer: any) => void;
-}
+import { OffersCarouselProps } from '@/types/global';
 
 const OffersCarousel: React.FC<OffersCarouselProps> = ({ onOfferSelect }) => {
   const navigate = useNavigate();

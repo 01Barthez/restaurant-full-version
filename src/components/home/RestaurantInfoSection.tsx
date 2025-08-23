@@ -3,7 +3,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { ChefHat, Star, Clock, Phone, MapPin } from 'lucide-react';
-import { contact_data, social_data } from '@/store/constants';
+import { contact_data } from '@/constants/global';
 
 const RestaurantInfoSection: React.FC = () => {
   return (

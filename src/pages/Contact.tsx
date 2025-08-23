@@ -10,19 +10,16 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
 import Navigation from '@/Layout/Navigation';
-import Footer from '@/Layout/Footer';
+import Footer from '@/Layout/footer/Footer';
 import SEOHelmet from '@/components/SEO/SEOHelmet';
-import { contact_data, social_data } from '@/store/constants';
+import { contact_data, social_data } from '@/constants/global';
 import HeroSection from '@/components/common/HeroSection';
 import { BsFacebook, BsInstagram, BsTwitterX } from 'react-icons/bs';
 import { HERO_CONTENT } from '@/constants/heroSections';
-import dynamic from 'next/dynamic';
+import { lazy, Suspense } from 'react';
 
-// Import dynamique du composant InteractiveMap pour éviter les problèmes de chargement côté serveur
-const InteractiveMap = dynamic(
-  () => import('@/components/Map/InteractiveMap').then((mod) => mod.default),
-  { ssr: false }
-);
+// Import dynamique du composant InteractiveMap avec React.lazy
+const InteractiveMap = lazy(() => import('@/components/Map/InteractiveMap'));
 
 
 // Schéma de validation avec Zod
@@ -407,7 +404,7 @@ const Contact: React.FC = () => {
             <div className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700">
               <InteractiveMap
                 restaurants={restaurants}
-                height={500}
+                height="500px"
                 className="w-full"
               />
             </div>

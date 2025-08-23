@@ -1,29 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, ShoppingCart, Heart, Share2, Star } from 'lucide-react';
+import { ShoppingCart, Heart, Share2, Star } from 'lucide-react';
 import useStore from '@/store/useStore';
 import { useToast } from '@/hooks/use-toast';
 import ReviewSystem from '@/components/reviews/ReviewSystem';
 import LazyImage from '@/components/ui/LazyImage';
 import SEOHelmet from '@/components/SEO/SEOHelmet';
-import { MenuItem } from '@/types/restaurant';
-import { menuItems } from '@/data/mockData';
+import { MenuItem } from '@/types/global';
 import LoaderPage from '@/Layout/LoaderPage';
 import NotFound from './NotFound';
 import HeroSection from '@/components/common/HeroSection';
 import { HERO_CONTENT } from '@/constants/heroSections';
 import Navigation from '../Layout/Navigation';
-import Footer from '@/Layout/Footer';
+import Footer from '@/Layout/footer/Footer';
+import { menuItems } from '@/data/menuItems.data';
 
 const MenuDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
-  const { t } = useTranslation();
   const { toast } = useToast();
-  const { addToCart, reviews, addReview, getMenuItemReviews } = useStore();
+  const { addToCart, addReview, getMenuItemReviews } = useStore();
   const [isFavorite, setIsFavorite] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [item, setItem] = useState<MenuItem | null>(null);
@@ -96,7 +93,7 @@ const MenuDetail: React.FC = () => {
         keywords={`${item.name}, ${item.category}, plat camerounais, ${item.ingredients?.join(', ')}, restaurant délice moderne`}
       />
 
-      <Navigation currentPage="menu" onPageChange={() => { }} />
+      <Navigation />
 
       <div className="min-h-screen bg-background">
         {/* Hero Section */}

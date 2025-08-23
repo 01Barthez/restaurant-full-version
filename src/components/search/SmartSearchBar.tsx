@@ -10,18 +10,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import Fuse from 'fuse.js';
 import useStore from '@/store/useStore';
-
-interface SearchFilters {
-  categories: string[];
-  dietary: string[];
-  priceRange: [number, number];
-  sortBy: 'name' | 'price' | 'rating' | 'popularity';
-}
-
-interface SmartSearchBarProps {
-  visible: boolean;
-  onSearch: (query: string, filters: SearchFilters) => void;
-}
+import { SearchFilters, SmartSearchBarProps } from '@/types/global';
 
 const SmartSearchBar: React.FC<SmartSearchBarProps> = ({ visible, onSearch }) => {
   const { t } = useTranslation();

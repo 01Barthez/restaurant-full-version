@@ -1,15 +1,10 @@
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Clock, Phone, Star, ChefHat, Users, Utensils, ArrowRight, Award } from 'lucide-react';
 import { MagnetizeButton } from '../ui/magnetize-button';
 import { BackgroundCircles } from '../ui/background-circles';
 import FlowerDishCluster from './FlowerDishCluster';
-
-interface HeroSectionProps {
-  onMenuClick: () => void;
-}
+import { HeroSectionProps } from '@/types/global';
+import { Award } from 'lucide-react';
 
 const HeroSection: React.FC<HeroSectionProps> = ({ onMenuClick }) => {
   return (
@@ -43,7 +38,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onMenuClick }) => {
                 className="text-sm cursor-default border-2 border-restaurant-gold text-restaurant-gold bg-transparent px-4 py-1  font-bold shadow-xl"
               >
                 <Award className="w-5 h-5 mr-2" />
-                Plus qu’un plat, une équation sensible
+                Plus qu'un plat, une équation sensible
               </Badge>
             </div>
 
@@ -65,7 +60,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onMenuClick }) => {
             <div className="text-base sm:text-lg md:text-xl">
               Ici, <span className="text-restaurant-gold font-semibold"> le rationnel et l’émotionnel</span>&nbsp;
               <span className=" text-gray-400 leading-relaxed max-w-2xl">
-                se croisent dans une géométrie qui nourrit l’âme autant que le corspans. Dans chaque détail discret  de notre cuisine se cache une grandeur qui ne cherche pas à impressionner, mais à toucher.
+                se croisent dans une géométrie qui nourrit autant l'âme que le corps. Dans chaque détail discret  de notre cuisine se cache une grandeur qui ne cherche pas à impressionner, mais à toucher.
               </span>
             </div>
 
@@ -85,10 +80,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onMenuClick }) => {
           <div className="relative flex items-center justify-center w-full min-h-[52vh] sm:min-h-[60vh] md:min-h-[70vh] lg:min-h-[80vh]">
             {/* Background behind */}
             <BackgroundCircles className="absolute inset-0 z-10 opacity-20" />
-            
+
             {/* Foreground flower cluster */}
             <div className="absolute z-20">
-              <FlowerDishCluster />
+              <FlowerDishCluster images={[]} />
             </div>
           </div>
         </div>

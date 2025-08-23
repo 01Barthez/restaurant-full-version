@@ -5,18 +5,8 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-
-interface MenuFiltersProps {
-  searchTerm: string;
-  onSearchChange: (term: string) => void;
-  selectedCategory: string;
-  onCategoryChange: (category: string) => void;
-  priceRange: string;
-  onPriceRangeChange: (range: string) => void;
-  timeFilter: string;
-  onTimeFilterChange: (time: string) => void;
-  onClearFilters: () => void;
-}
+import { MenuFiltersProps } from '@/types/global';
+import { categories, priceRanges, timeFilters } from '@/constants/menu';
 
 const MenuFilters: React.FC<MenuFiltersProps> = ({
   searchTerm,
@@ -29,28 +19,6 @@ const MenuFilters: React.FC<MenuFiltersProps> = ({
   onTimeFilterChange,
   onClearFilters
 }) => {
-  const categories = [
-    { value: 'all', label: 'Toutes catégories' },
-    { value: 'plats', label: 'Plats' },
-    { value: 'boissons', label: 'Boissons' },
-    { value: 'desserts', label: 'Desserts' },
-    { value: 'supplements', label: 'Suppléments' }
-  ];
-
-  const priceRanges = [
-    { value: 'all', label: 'Tous les prix' },
-    { value: '0-10', label: 'Moins de 10€' },
-    { value: '10-20', label: '10€ - 20€' },
-    { value: '20+', label: 'Plus de 20€' }
-  ];
-
-  const timeFilters = [
-    { value: 'all', label: 'Tous les délais' },
-    { value: '0-10', label: 'Moins de 10 min' },
-    { value: '10-20', label: '10-20 min' },
-    { value: '20+', label: 'Plus de 20 min' }
-  ];
-
   const hasActiveFilters = selectedCategory !== 'all' || priceRange !== 'all' || timeFilter !== 'all' || searchTerm !== '';
 
   return (

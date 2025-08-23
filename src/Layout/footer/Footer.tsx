@@ -4,11 +4,11 @@ import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Twitter, Settings, Loa
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import PWAInstallButton from '@/components/ui/PWAInstallButton';
-import { contact_data, social_data } from '@/store/constants';
 import { subscribeToNewsletter } from '@/services/newsletterService';
 // import { toast } from 'sonner';
 import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
+import { contact_data, social_data } from '@/constants/global';
 
 interface FooterProps {
   onAdminClick?: () => void;
@@ -27,24 +27,24 @@ const Footer: React.FC<FooterProps> = ({ onAdminClick, className }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Validation de l'email
     if (!email.trim()) {
       setEmailError('Veuillez entrer une adresse email');
       return;
     }
-    
+
     if (!validateEmail(email)) {
       setEmailError('Veuillez entrer une adresse email valide');
       return;
     }
-    
+
     setEmailError('');
     setIsLoading(true);
-    
+
     try {
       const result = await subscribeToNewsletter(email);
-      
+
       if (result.success) {
         toast.success(result.message, {
           duration: 5000,
@@ -181,7 +181,7 @@ const Footer: React.FC<FooterProps> = ({ onAdminClick, className }) => {
               Restez informé de nos nouveautés et offres spéciales
             </p>
             <form onSubmit={handleSubmit} className="w-full max-w-sm space-y-2">
-              <div className="flex flex-col space-y-1 lg:space-y-2 items-center">
+              <div className="flex flex-col space-y-1 lg:space-y-2 items-center lg:items-stretch">
                 <div className="relative">
                   <Input
                     type="email"
@@ -191,16 +191,16 @@ const Footer: React.FC<FooterProps> = ({ onAdminClick, className }) => {
                       setEmail(e.target.value);
                       if (emailError) setEmailError('');
                     }}
-                    className={`w-fit max-w-xs lg:max-w-lg lg:w-full px-20 md:px-0  ${emailError ? 'border-red-500' : 'border-gray-300'}`}
+                    className={`w-fit max-w-xs lg:max-w-2xl lg:w-full px-20 md:px-3  ${emailError ? 'border-red-500' : 'border-gray-300'}`}
                     disabled={isLoading}
                   />
                   {emailError && (
                     <p className="mt-1 text-xs text-red-500 text-left">{emailError}</p>
                   )}
                 </div>
-               
-                <Button 
-                  type="submit" 
+
+                <Button
+                  type="submit"
                   className="bg-orange-500 hover:bg-orange-600 transition-colors w-fit lg:w-full px-20 lg:px-0"
                   disabled={isLoading}
                 >

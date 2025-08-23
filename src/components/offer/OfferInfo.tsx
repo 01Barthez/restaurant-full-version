@@ -3,12 +3,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Clock, Users, Utensils } from 'lucide-react';
-import { Offer, MenuItem } from '@/store/types';
-
-interface OfferInfoProps {
-  offer: Offer;
-  items: MenuItem[];
-}
+import { OfferInfoProps } from '@/types/global';
 
 const OfferInfo: React.FC<OfferInfoProps> = ({ offer, items }) => {
   const totalPrepTime = items.reduce((sum, item) => sum + item.preparationTime, 0);

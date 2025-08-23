@@ -1,5 +1,5 @@
 
-import { MenuItem, Restaurant } from '@/types/restaurant';
+import { MenuItem } from '@/types/global';
 
 
 export const menuItems: MenuItem[] = [
