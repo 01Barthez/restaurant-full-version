@@ -117,16 +117,14 @@ const Home = () => {
       <div className="min-h-screen bg-white dark:bg-gray-900">
         <Navigation />
 
-        {currentPage === 'home' && (
-          <>
-            <HomePage
-              onMenuClick={handleMenuClick}
-              onItemSelect={handleItemSelect}
-              onCategorySelect={handleCategorySelect}
-            />
-            <Footer />
-          </>
-        )}
+        {
+          currentPage === 'home' &&
+          <HomePage
+            onMenuClick={handleMenuClick}
+            onItemSelect={handleItemSelect}
+            onCategorySelect={handleCategorySelect}
+          />
+        }
 
         {currentPage === 'menu' && !isMenuItemPage && (
           <MenuPage
@@ -138,7 +136,7 @@ const Home = () => {
         {isMenuItemPage && (
           <MenuDetail onBack={handleBackToMenu} onOrder={handleOrder} />
         )}
-        
+
         {!isMenuItemPage && <Footer />}
       </div>
     </>
