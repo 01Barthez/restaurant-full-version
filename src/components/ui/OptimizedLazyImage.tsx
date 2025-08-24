@@ -75,9 +75,12 @@ const OptimizedLazyImage: React.FC<OptimizedLazyImageProps> = ({
 
   // Déterminer le type de source d'image
   const imageSource = React.useMemo<ImageSource>(() => {
-    if (src.includes('unsplash.com')) return 'unsplash';
-    if (src.includes('res.cloudinary.com')) return 'cloudinary';
-    if (src.startsWith('/') || src.startsWith('http://localhost') || src.startsWith('./')) return 'local';
+    if (!src) return 'other';
+    if (typeof src === 'string') {
+      if (src.includes('unsplash.com')) return 'unsplash';
+      if (src.includes('res.cloudinary.com')) return 'cloudinary';
+      if (src.startsWith('/') || src.startsWith('http://localhost') || src.startsWith('./')) return 'local';
+    }
     return 'other';
   }, [src]);
 

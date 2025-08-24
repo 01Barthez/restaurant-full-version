@@ -608,3 +608,13 @@ export interface HeroSectionProps {
   onMenuClick: () => void;
 }
 
+export interface MenuCardProps {
+  item: MenuItem;
+  onSelect: (item: MenuItem) => void;
+}
+
+export interface MenuDetailProps {
+  item: MenuItem;
+  onBack: () => void;
+  onOrder: (item: MenuItem) => void;
+}

@@ -20,7 +20,9 @@ const App = () => {
     // Initialize test data for the application
     const store = useStore.getState();
     if (store.initializeTestData) {
-      store.initializeTestData();
+      store.initializeTestData().catch((error: Error) => {
+        console.error('Error initializing test data:', error);
+      });
     }
 
     // Initialize cache service with error handling

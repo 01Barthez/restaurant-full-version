@@ -11,12 +11,14 @@ Bienvenue dans le projet ! Nous sommes ravis que vous souhaitiez contribuer. Voi
 ## Installation
 
 1. **Cloner le dépôt**
+
    ```bash
    git clone [URL_DU_REPO]
    cd [NOM_DU_PROJET]
    ```
 
 2. **Installer les dépendances**
+
    ```bash
    npm install
    ```

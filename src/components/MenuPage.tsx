@@ -9,7 +9,8 @@ import { Button } from '@/components/ui/button';
 import { Grid, List } from 'lucide-react';
 import HeroSection from './common/HeroSection';
 import { HERO_CONTENT } from '@/constants/heroSections';
-import { menuItems } from '@/data/menuItems.data';
+import useStore from '@/store/useStore';
+import { useEffect } from 'react';
 
 const MenuPage: React.FC<MenuPageProps> = ({ onItemSelect, selectedCategory }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -18,14 +19,22 @@ const MenuPage: React.FC<MenuPageProps> = ({ onItemSelect, selectedCategory }) =
   const [timeFilter, setTimeFilter] = useState('all');
   const [viewMode, setViewMode] = useState<'categorized' | 'filtered'>('categorized');
   const [useVirtualization, setUseVirtualization] = useState(false);
+  const { menuItems, initializeTestData } = useStore();
+  
+  // S'assurer que les données sont chargées
+  useEffect(() => {
+    if (menuItems.length === 0 && initializeTestData) {
+      initializeTestData();
+    }
+  }, [menuItems.length, initializeTestData]);
 
   const filteredItems = useMemo(() => {
-    return menuItems.filter(item => {
+    return menuItems.filter((item: MenuItem) => {
       // Search filter
       const matchesSearch = searchTerm === '' ||
         item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         item.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.ingredients.some(ing => ing.toLowerCase().includes(searchTerm.toLowerCase()));
+        item.ingredients.some((ing: string) => ing.toLowerCase().includes(searchTerm.toLowerCase()));
 
       // Category filter
       const matchesCategory = categoryFilter === 'all' || item.category === categoryFilter;
@@ -174,7 +183,7 @@ const MenuPage: React.FC<MenuPageProps> = ({ onItemSelect, selectedCategory }) =
                     />
                   ) : (
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                      {filteredItems.map((item, index) => (
+                      {filteredItems.map((item: MenuItem, index: number) => (
                         <div
                           key={item.id}
                           className="animate-fade-in"

@@ -36,7 +36,7 @@ const MenuDetail: React.FC = () => {
 
   const itemReviews = getMenuItemReviews ? getMenuItemReviews(item.id) : [];
   const averageRating = itemReviews.length > 0
-    ? itemReviews.reduce((sum, review) => sum + review.rating, 0) / itemReviews.length
+    ? itemReviews.reduce((sum: number, review: { rating: number }) => sum + review.rating, 0) / itemReviews.length
     : 0;
 
   const handleAddToCart = () => {
@@ -95,7 +95,6 @@ const MenuDetail: React.FC = () => {
 
       <Navigation />
 
-      <div className="min-h-screen bg-background">
         {/* Hero Section */}
         <HeroSection
           image={`MENU_DETAIL`}
@@ -104,7 +103,8 @@ const MenuDetail: React.FC = () => {
           description={HERO_CONTENT.MENU_DETAIL.description}
           showBackButton
         />
-
+        
+      <div className="min-h-screen bg-background">
         <div className="max-w-4xl mx-auto px-4 py-8">
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             <div>

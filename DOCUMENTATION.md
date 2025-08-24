@@ -25,6 +25,7 @@ The application follows a modern React architecture with clear separation of con
 ```
 
 ### Key Principles
+
 - **Component-based architecture** with reusable UI components
 - **Centralized state management** using Zustand
 - **Type-safe development** with TypeScript
@@ -63,6 +64,7 @@ interface AppState {
 ```
 
 ### Data Persistence
+
 - **Local Storage**: User sessions, cart data, preferences
 - **Session Storage**: Temporary data during user session
 - **Memory**: Real-time updates and UI state
@@ -119,6 +121,7 @@ const routes = [
 ```
 
 ### Navigation Guards
+
 - **Protected Routes**: User and admin routes require authentication
 - **Role-based Access**: Admin routes are restricted to admin users
 - **Redirect Logic**: Unauthenticated users are redirected to login
@@ -144,6 +147,7 @@ graph TD
 ```
 
 ### Admin Authentication
+
 - **Credentials**: Username: `admin`, Password: `admin123`
 - **Session Management**: Admin sessions persist until logout
 - **Access Control**: Admin-only routes and features
@@ -165,6 +169,7 @@ stateDiagram-v2
 ```
 
 ### Real-time Updates
+
 - **Status Synchronization**: Order status updates are visible to both admin and customer
 - **Activity Logging**: All order actions are tracked and logged
 - **Notifications**: Toast notifications for status changes
@@ -212,6 +217,7 @@ interface MenuItem {
 ```
 
 ### Relationships
+
 - **User → Orders**: One-to-many relationship
 - **Order → CartItems**: One-to-many relationship
 - **MenuItem → Category**: Many-to-one relationship
@@ -222,6 +228,7 @@ interface MenuItem {
 ### Design System
 
 #### Colors
+
 ```css
 /* Primary Colors */
 --orange-500: #f97316;
@@ -235,17 +242,20 @@ interface MenuItem {
 ```
 
 #### Typography
+
 - **Headings**: Inter font family, bold weights
 - **Body Text**: Inter font family, regular weights
 - **Code**: JetBrains Mono font family
 
 #### Spacing Scale
+
 - **Base Unit**: 4px (0.25rem)
 - **Common Spacing**: 4px, 8px, 12px, 16px, 24px, 32px, 48px
 
 ### Component Patterns
 
 #### Cards
+
 ```tsx
 <Card>
   <CardHeader>
@@ -258,6 +268,7 @@ interface MenuItem {
 ```
 
 #### Buttons
+
 ```tsx
 <Button variant="default">Primary Action</Button>
 <Button variant="outline">Secondary Action</Button>
@@ -265,6 +276,7 @@ interface MenuItem {
 ```
 
 ### Responsive Design
+
 - **Mobile First**: Design starts with mobile, enhances for larger screens
 - **Breakpoints**: sm (640px), md (768px), lg (1024px), xl (1280px)
 - **Grid System**: CSS Grid and Flexbox for layouts
@@ -272,11 +284,13 @@ interface MenuItem {
 ## 🔧 Development Guidelines
 
 ### Code Style
+
 - **ESLint**: Enforces code quality rules
 - **Prettier**: Automatic code formatting
 - **TypeScript**: Strict type checking enabled
 
 ### Component Guidelines
+
 1. Use functional components with hooks
 2. Implement proper TypeScript interfaces
 3. Follow the single responsibility principle
@@ -284,11 +298,13 @@ interface MenuItem {
 5. Include JSDoc comments for complex logic
 
 ### Testing Strategy
+
 - **Unit Tests**: Test individual components and functions
 - **Integration Tests**: Test component interactions
 - **E2E Tests**: Test complete user workflows
 
 ### Performance Optimization
+
 - **Code Splitting**: Lazy load routes and components
 - **Memoization**: Use React.memo for expensive renders
 - **Bundle Analysis**: Monitor bundle size regularly

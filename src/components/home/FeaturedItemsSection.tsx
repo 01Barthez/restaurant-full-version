@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Utensils, Star, Clock, ChevronRight, Heart } from 'lucide-react';
 import { menuItems } from '@/data/menuItems.data';
 import { toast } from '@/components/ui/use-toast';
+import OptimizedLazyImage from '../ui/OptimizedLazyImage';
 
 const FAVORITES_KEY = 'resto_favorites';
 
@@ -73,10 +74,15 @@ const FeaturedItemsSection: React.FC<FeaturedItemsSectionProps> = ({ onMenuClick
             >
               <div className="relative overflow-hidden">
                 <div className="aspect-w-4 aspect-h-3 w-full">
-                  <img
+                  <OptimizedLazyImage
                     src={item.image}
                     alt={item.name}
                     className="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    priority={false}
+                    quality={80}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    darkModeSrc="/image-dark.jpg"
+                    blurDataURL="data:image/jpeg;base64,..."
                   />
                 </div>
 
@@ -165,7 +171,7 @@ const FeaturedItemsSection: React.FC<FeaturedItemsSectionProps> = ({ onMenuClick
               <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </span>
           </Button>
-          
+
           {favorites.size > 0 && (
             <Button
               variant="outline"

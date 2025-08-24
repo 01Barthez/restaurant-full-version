@@ -25,7 +25,7 @@ const Router: React.FC = () => {
         routes.map((route) => (
           <div
             key={route.path}
-            onMouseEnter={() => handleMouseEnter(route.path)}
+            onMouseEnter={() => handleMouseEnter(route.path || '/')}
             style={{ display: 'none' }}
             aria-hidden="true"
           />

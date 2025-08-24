@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { MenuItem } from '@/types/global';
 import HomePage from '@/components/HomePage';
@@ -10,12 +10,10 @@ import SEOHelmet from '@/components/SEO/SEOHelmet';
 import { useToast } from '@/hooks/use-toast';
 import Footer from '@/Layout/footer/Footer';
 import Navigation from '@/Layout/Navigation';
-import { menuItems } from '@/data/menuItems.data';
 
 const Home = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
   const [isAdminMode, setIsAdminMode] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -30,38 +28,13 @@ const Home = () => {
   };
 
   const currentPage = getCurrentPage();
-
-  // Handle menu item selection from URL params
-  useEffect(() => {
-    const path = location.pathname;
-    const menuItemMatch = path.match(/\/menu\/(.+)/);
-
-    if (menuItemMatch) {
-      const itemId = menuItemMatch[1];
-      const item = menuItems.find(i => i.id === itemId);
-      if (item) {
-        setSelectedItem(item);
-      }
-    } else {
-      setSelectedItem(null);
-    }
-  }, [location.pathname]);
-
-  const handlePageChange = (page: string) => {
-    const routes = {
-      'home': '/',
-      'menu': '/menu'
-    };
-    navigate(routes[page as keyof typeof routes] || '/');
-  };
+  const isMenuItemPage = location.pathname.startsWith('/menu/');
 
   const handleItemSelect = (itemOrId: MenuItem | string) => {
-    const item = typeof itemOrId === 'string'
-      ? menuItems.find(i => i.id === itemOrId)
-      : itemOrId;
-
-    if (item) {
-      navigate(`/menu/${item.id}`);
+    if (typeof itemOrId === 'string') {
+      navigate(`/menu/${itemOrId}`);
+    } else {
+      navigate(`/menu/${itemOrId.id}`);
     }
   };
 
@@ -84,10 +57,6 @@ const Home = () => {
       description: `${item.name} a été ajouté à votre commande.`,
       duration: 3000,
     });
-  };
-
-  const handleAdminClick = () => {
-    setIsAdminMode(true);
   };
 
   const handleAdminLogin = (success: boolean) => {
@@ -145,37 +114,33 @@ const Home = () => {
           : 'restaurant camerounais, cuisine africaine, spécialités camerounaises, livraison yaoundé'}
       />
 
-    <div className="min-h-screen bg-white dark:bg-gray-900">
-      <Navigation />
+      <div className="min-h-screen bg-white dark:bg-gray-900">
+        <Navigation />
 
-      {currentPage === 'home' && (
-        <>
-          <HomePage
-            onMenuClick={handleMenuClick}
-            onItemSelect={handleItemSelect}
-            onCategorySelect={handleCategorySelect}
-          />
-          <Footer />
-        </>
-      )}
+        {currentPage === 'home' && (
+          <>
+            <HomePage
+              onMenuClick={handleMenuClick}
+              onItemSelect={handleItemSelect}
+              onCategorySelect={handleCategorySelect}
+            />
+            <Footer />
+          </>
+        )}
 
-      {currentPage === 'menu' && !selectedItem && (
-        <>
+        {currentPage === 'menu' && !isMenuItemPage && (
           <MenuPage
             onItemSelect={handleItemSelect}
-            selectedCategory={selectedCategory !== 'all' ? selectedCategory : undefined}
+            selectedCategory={selectedCategory !== 'all' ? selectedCategory : 'all'}
           />
-          <Footer />
-        </>
-      )}
+        )}
 
-      {selectedItem && (
-        <>
-          <MenuDetail />
-          <Footer />
-        </>
-      )}
-    </div>
+        {isMenuItemPage && (
+          <MenuDetail onBack={handleBackToMenu} onOrder={handleOrder} />
+        )}
+        
+        {!isMenuItemPage && <Footer />}
+      </div>
     </>
   );
 };

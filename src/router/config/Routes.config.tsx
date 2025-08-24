@@ -12,7 +12,7 @@ const Contact = lazyWithPreload(() => import('@/pages/Contact'));
 const AboutStartup = lazyWithPreload(() => import('@/pages/AboutStartup'));
 const AboutRewards = lazyWithPreload(() => import('@/pages/AboutRewards'));
 const Gallery = lazyWithPreload(() => import('@/pages/Gallery'));
-const MenuDetail = lazyWithPreload(() => import('@/pages/MenuDetail'));
+const MenuDetail = lazyWithPreload(() => import('@/components/MenuDetail'));
 const SpecialOfferDetail = lazyWithPreload(() => import('@/pages/SpecialOfferDetail'));
 const RestaurantDetail = lazyWithPreload(() => import('@/pages/RestaurantDetail'));
 

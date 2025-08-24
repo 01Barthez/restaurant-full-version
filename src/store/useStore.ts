@@ -1,16 +1,25 @@
-
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { 
-  User, 
-  CartItem, 
-  Order, 
-  MenuItem, 
-  Category, 
-  Offer, 
-  ActivityLog, 
-  Analytics 
+  User,
+  CartItem,
+  Category,
+  ActivityLog,
+  Analytics,
+  MenuItem
 } from '@/types/global';
+
+type Offer = {
+  id: string;
+  title: string;
+  description: string;
+  discount: string;
+  image: string;
+  available: boolean;
+  items: Array<{ menuItemId: string; quantity: number }>;
+  originalPrice: number;
+  discountPrice: number;
+};
 import { createAuthSlice, AuthSlice } from './slices/authSlice';
 import { createCartSlice, CartSlice } from './slices/cartSlice';
 import { createReviewSlice, ReviewSlice } from './slices/reviewSlice';
@@ -239,66 +248,34 @@ const useStore = create<AppState>()(
       },
 
       // Initialize test data
-      initializeTestData: () => {
-        const testMenuItems: MenuItem[] = [
-          {
-            id: '1',
-            name: 'Coq au Vin',
-            description: 'Poulet mijoté dans du vin rouge avec des champignons et des lardons',
-            price: 24.50,
-            images: ['/placeholder.svg'],
-            category: 'mains',
-            ingredients: ['Poulet', 'Vin rouge', 'Champignons', 'Lardons', 'Oignons'],
-            available: true,
-            featured: true,
-            preparationTime: 25,
-            dietary: [],
-            nutritionalInfo: {
-              calories: 450,
-              protein: 35,
-              carbs: 8,
-              fat: 20
-            }
+      initializeTestData: async () => {
+        // Importer les données complètes depuis menuItems.data.ts de manière asynchrone
+        const { menuItems: fullMenuItems } = await import('@/data/menuItems.data');
+        
+        // Mapper les données pour correspondre à l'interface MenuItem complète
+        const testMenuItems = fullMenuItems.map((item: MenuItem) => ({
+          id: item.id,
+          name: item.name,
+          description: item.description,
+          price: item.price,
+          images: [item.image],
+          category: item.category,
+          ingredients: item.ingredients || [],
+          available: item.available !== false, // Par défaut à true si non spécifié
+          featured: item.featured || false,
+          preparationTime: item.preparationTime || 15,
+          dietary: item.dietary || [],
+          nutritionalInfo: item.nutritionalInfo || {
+            calories: 0,
+            protein: 0,
+            carbs: 0,
+            fat: 0
           },
-          {
-            id: '2',
-            name: 'Ratatouille Provençale',
-            description: 'Légumes de saison mijotés aux herbes de Provence',
-            price: 18.00,
-            images: ['/placeholder.svg'],
-            category: 'mains',
-            ingredients: ['Aubergines', 'Courgettes', 'Tomates', 'Poivrons', 'Herbes de Provence'],
-            available: true,
-            featured: false,
-            preparationTime: 20,
-            dietary: ['vegetarian', 'vegan'],
-            nutritionalInfo: {
-              calories: 180,
-              protein: 6,
-              carbs: 25,
-              fat: 8
-            }
-          },
-          {
-            id: '3',
-            name: 'Tarte Tatin',
-            description: 'Tarte aux pommes caramélisées, servie tiède',
-            price: 8.50,
-            images: ['/placeholder.svg'],
-            category: 'desserts',
-            ingredients: ['Pommes', 'Pâte brisée', 'Beurre', 'Sucre', 'Cannelle'],
-            available: true,
-            featured: true,
-            preparationTime: 15,
-            dietary: ['vegetarian'],
-            nutritionalInfo: {
-              calories: 280,
-              protein: 4,
-              carbs: 45,
-              fat: 12
-            }
-          }
-        ];
+          gallery: item.gallery || [],
+          averageRating: item.averageRating,
+          reviewCount: item.reviewCount,
+          stockLevel: item.stockLevel
+        }));
 
         const testCategories: Category[] = [
           {
@@ -321,10 +298,13 @@ const useStore = create<AppState>()(
           }
         ];
 
-        set((state) => ({
-          menuItems: state.menuItems.length === 0 ? testMenuItems : state.menuItems,
-          categories: state.categories.length === 0 ? testCategories : state.categories
-        }));
+        // Mettre à jour le store avec les nouvelles données de test
+        set({
+          menuItems: testMenuItems,
+          categories: testCategories
+        });
+        
+        console.log('Test data initialized with', testMenuItems.length, 'menu items and', testCategories.length, 'categories');
       },
 
       // Utility functions

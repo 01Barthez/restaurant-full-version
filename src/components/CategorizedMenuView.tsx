@@ -5,18 +5,31 @@ import MenuCard from './MenuCard';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from './ui/card';
-import { menuItems } from '@/data/menuItems.data';
+import useStore from '@/store/useStore';
+import { useEffect } from 'react';
 
 interface CategorizedMenuViewProps {
   onItemSelect: (item: MenuItem) => void;
 }
 
 const CategorizedMenuView: React.FC<CategorizedMenuViewProps> = ({ onItemSelect }) => {
-  const groupedItems = menuItems.reduce((acc, item) => {
-    if (!acc[item.category]) {
-      acc[item.category] = [];
+  const { menuItems, initializeTestData } = useStore();
+  
+  // S'assurer que les données sont chargées
+  useEffect(() => {
+    if (menuItems.length === 0 && initializeTestData) {
+      initializeTestData();
     }
-    acc[item.category].push(item);
+  }, [menuItems.length, initializeTestData]);
+
+  const groupedItems = menuItems.reduce<Record<string, MenuItem[]>>((acc: Record<string, MenuItem[]>, item: MenuItem) => {
+    if (item?.category) {
+      const category = item.category;
+      if (!acc[category]) {
+        acc[category] = [];
+      }
+      acc[category].push(item);
+    }
     return acc;
   }, {} as Record<string, MenuItem[]>);
 
@@ -29,16 +42,19 @@ const CategorizedMenuView: React.FC<CategorizedMenuViewProps> = ({ onItemSelect 
 
   const subCategories = {
     'plats': {
-      'riz': menuItems.filter(item => item.category === 'plats' && item.name.toLowerCase().includes('riz')),
-      'poulet': menuItems.filter(item => item.category === 'plats' && item.name.toLowerCase().includes('poulet')),
-      'boeuf': menuItems.filter(item => item.category === 'plats' && (item.name.toLowerCase().includes('boeuf') || item.name.toLowerCase().includes('bœuf'))),
-      'poisson': menuItems.filter(item => item.category === 'plats' && item.name.toLowerCase().includes('poisson'))
+      'riz': menuItems.filter((item: MenuItem) => item.category === 'plats' && item.name.toLowerCase().includes('riz')),
+      'poulet': menuItems.filter((item: MenuItem) => item.category === 'plats' && item.name.toLowerCase().includes('poulet')),
+      'boeuf': menuItems.filter((item: MenuItem) => item.category === 'plats' && (item.name.toLowerCase().includes('boeuf') || item.name.toLowerCase().includes('bœuf'))),
+      'poisson': menuItems.filter((item: MenuItem) => item.category === 'plats' && item.name.toLowerCase().includes('poisson'))
     }
   };
 
+  // Convertir groupedItems en un tableau de [string, MenuItem[]] pour le typage correct
+  const categories = Object.entries(groupedItems) as [string, MenuItem[]][];
+
   return (
     <div className="space-y-16">
-      {Object.entries(groupedItems).map(([category, items]) => (
+      {categories.map(([category, items]) => (
         <section key={category} className="animate-fade-in">
           <div className="text-center mb-8">
             <h2 className="title font-bold text-restaurant-dark dark:text-white mb-4">
@@ -58,7 +74,7 @@ const CategorizedMenuView: React.FC<CategorizedMenuViewProps> = ({ onItemSelect 
                       Spécialités {subCat}
                     </h3>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                      {subItems.map((item, index) => (
+                      {subItems.map((item: MenuItem, index: number) => (
                         <div
                           key={item.id}
                           className="animate-fade-in"
@@ -74,7 +90,7 @@ const CategorizedMenuView: React.FC<CategorizedMenuViewProps> = ({ onItemSelect 
 
               {/* Other main dishes not in subcategories */}
               {(() => {
-                const otherPlats = items.filter(item =>
+                const otherPlats: MenuItem[] = (items as MenuItem[]).filter((item: MenuItem) =>
                   !item.name.toLowerCase().includes('riz') &&
                   !item.name.toLowerCase().includes('poulet') &&
                   !item.name.toLowerCase().includes('boeuf') &&
@@ -89,7 +105,7 @@ const CategorizedMenuView: React.FC<CategorizedMenuViewProps> = ({ onItemSelect 
                         Autres Spécialités
                       </h3>
                       <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                        {otherPlats.map((item, index) => (
+                        {(otherPlats as MenuItem[]).map((item: MenuItem, index: number) => (
                           <div
                             key={item.id}
                             className="animate-fade-in"
@@ -108,7 +124,7 @@ const CategorizedMenuView: React.FC<CategorizedMenuViewProps> = ({ onItemSelect 
           ) : (
             // Regular layout for other categories
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {items.map((item, index) => (
+              {(items as MenuItem[]).map((item: MenuItem, index: number) => (
                 <div
                   key={item.id}
                   className="animate-fade-in"
